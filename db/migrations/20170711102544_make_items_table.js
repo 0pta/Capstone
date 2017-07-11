@@ -1,13 +1,16 @@
 exports.up = function(knex) {
   return knex.schema.createTable('items', (table) => {
     table.increments()
+    table.integer('category_id')
     table.string('name').notNullable().defaultTo('')
     table.string('img_url').notNullable()
     table.text('description').notNullable().defaultTo('')
+    table.string('condition').notNullable().defaultTo('')
     table.integer('cost')
     table.integer('profit')
     table.integer('listed_price')
     table.integer('sold_price')
+
 
     table.timestamps(true, true)
   })
