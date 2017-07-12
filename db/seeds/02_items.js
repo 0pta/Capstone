@@ -31,7 +31,7 @@ exports.seed = function(knex) {
         },
         {
           id: 3,
-          category_id: '1',
+          category_id: '7',
           name: 'Licks',
           description: 'This is a service. Not sure I can sell services on here.',
           condition: 'Perfect',

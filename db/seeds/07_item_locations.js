@@ -1,47 +1,61 @@
 exports.seed = function(knex) {
-  return knex('categories').del()
+  return knex('item_locations').del()
   .then(() => {
-    return knex('categories').insert(
+    return knex('item_locations').insert(
       [
         {
           id: 1,
-          name: 'Furniture',
+          item_id: 1,
+          location_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           id: 2,
-          name: 'Electronics',
+          item_id: 1,
+          location_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           id: 3,
-          name: 'Bathroom',
+          item_id: 1,
+          location_id: 4,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           id: 4,
-          name: 'Sports',
+          item_id: 2,
+          location_id: 1,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           id: 5,
-          name: 'Weapons',
+          item_id: 2,
+          location_id: 2,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           id: 6,
-          name: 'Food',
+          item_id: 2,
+          location_id: 4,
           created_at: new Date(),
           updated_at: new Date()
         },
         {
           id: 7,
-          name: 'Services',
+          item_id: 3,
+          location_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 8,
+          item_id: 3,
+          location_id: 4,
           created_at: new Date(),
           updated_at: new Date()
         }
@@ -50,7 +64,7 @@ exports.seed = function(knex) {
   })
   .then(() => {
     return knex.raw(
-      "SELECT setval('categories_id_seq', (SELECT MAX(id) FROM categories));"
+      "SELECT setval('item_locations_id_seq', (SELECT MAX(id) FROM item_locations));"
     )
   })
 }
