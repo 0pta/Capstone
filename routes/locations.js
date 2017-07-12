@@ -4,8 +4,8 @@ const knex = require('../db/knex')
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  knex('users').select('*').then(users => {
-    res.json({ users })
+  knex('locations').select('*').then(locations => {
+    res.json({ locations })
   })
 })
 

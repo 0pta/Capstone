@@ -3,11 +3,12 @@ const router = express.Router()
 const knex = require('../db/knex')
 
 /* GET users listing. */
-router.get('/', (req, res, next) => {
-  knex('items')
-  .then(items => {
-    res.render('items', {items})
+router.get('/', function (req, res, next) {
+  knex('items').select('*').then(items => {
+    res.json({ items })
   })
 })
+
+
 
 module.exports = router
