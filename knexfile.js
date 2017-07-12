@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   development: { client: 'pg',
-  Connection: 'postgres://localhost/capstone_db',
+  connection: 'postgres://localhost/capstone_db',
   migrations: {
     directory: path.join(__dirname, 'db', 'migrations') },
     seeds: {

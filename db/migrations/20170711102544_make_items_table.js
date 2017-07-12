@@ -3,14 +3,12 @@ exports.up = function(knex) {
     table.increments()
     table.integer('category_id')
     table.string('name').notNullable().defaultTo('')
-    table.string('img_url').notNullable()
     table.text('description').notNullable().defaultTo('')
     table.string('condition').notNullable().defaultTo('')
     table.integer('cost')
-    table.integer('profit')
     table.integer('listed_price')
     table.integer('sold_price')
-
+    table.integer('user_id')
 
     table.timestamps(true, true)
   })
