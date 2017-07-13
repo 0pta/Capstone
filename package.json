@@ -1,13 +1,16 @@
 {
   "name": "capstone",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "lite-server ./public",
     "dev": "nodemon -e js,hbs ./bin/www",
     "knex": "knex"
   },
   "dependencies": {
+    "@uirouter/angularjs": "latest",
+    "@uirouter/visualizer": "latest",
+    "angular": "^1.6.0",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
