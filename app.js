@@ -9,8 +9,6 @@ const bodyParser = require('body-parser')
 
 const index = require('./server/routes/index')
 const users = require('./server/routes/users')
-const items = require('./server/routes/items')
-const locations = require('./server/routes/locations')
 
 const app = express()
 
@@ -30,7 +28,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api', index)
 app.use('/api/users', users)
-app.use('/api/items', items)
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')})
