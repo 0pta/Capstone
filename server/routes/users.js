@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const knex = require('../db/knex')
+const knex = require('../../db/knex')
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
-  knex('locations').select('*').then(locations => {
-    res.json({ locations })
+  knex('users').select('*').then(users => {
+    res.json({ users })
   })
 })
 

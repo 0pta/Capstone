@@ -7,6 +7,10 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 
+const index = require('./server/routes/index')
+const users = require('./server/routes/users')
+const items = require('./server/routes/items')
+const locations = require('./server/routes/locations')
 
 const app = express()
 
@@ -23,14 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 // routes
-const index = require('./routes/index')
-const users = require('./routes/users')
-const items = require('./routes/items')
-const locations = require('./routes/locations')
 
 app.use('/api', index)
 app.use('/api/users', users)
-app.use('/items', items)
+app.use('/api/items', items)
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', {root: path.join(__dirname, 'public')})

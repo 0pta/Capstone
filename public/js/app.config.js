@@ -2,7 +2,7 @@
   'use strict'
 
   angular.module('app')
-    .config(config)
+  .config(config)
 
   config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
 
@@ -10,11 +10,16 @@
     $locationProvider.html5Mode(true)
 
     $stateProvider
-      .state({
-        name: 'app',
-        url:  '/',
-        component: 'app',
-      })
+    .state({
+      name: 'app',
+      url: '/',
+      component: 'app',
+    })
+    .state({
+      name: 'items',
+      url: '/',
+      component: 'itemList',
+    })
   }
 
 }())
