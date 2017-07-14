@@ -1,9 +1,9 @@
-const items = require('../models/items.js')
+const Item = require('../models/items.js')
 
 
-
+// ----- GET all refactorable ----- //
 function getAllItems (req, res, next) {
-  items.getItems()
+  Item.getItems()
   .then(items => {
     res.json(items)
   })
@@ -11,11 +11,31 @@ function getAllItems (req, res, next) {
 }
 
 function getAllImages (req, res, next) {
-  items.getImages()
+  Item.getImages()
   .then(images => {
     res.json(images)
   })
   .catch(err => next(err))
 }
 
-module.exports = { getAllItems, getAllImages }
+function getAllLocations (req, res, next) {
+  Item.getLocations()
+  .then(locations => {
+    res.json(locations)
+  })
+  .catch(err => next(err))
+}
+
+function getAllItemLocations (req, res, next) {
+  Item.getAllItemLocations()
+  .then(itemLocations => {
+    res.json(itemLocations)
+  })
+  .catch(err => next(err))
+}
+// ----- GET all refactorable ----- //
+
+
+
+
+module.exports = { getAllItems, getAllImages, getAllLocations, getAllItemLocations }

@@ -21,3 +21,26 @@ a {
 .panel {
   width: 100%;
 }
+
+.create-item-btn {
+  position: absolute;
+  width: 27%;
+  bottom: 0px;
+  opacity: 0.8;
+  background: #808B96;
+  color: #34495E;
+  font-family: Sans-serif;
+  font-size: 20px;
+  font-weight: bolder;
+  line-height: 50px;
+  text-align: center;
+  border: 1;
+  margin-left: 1%;
+  transition: all 0.3s ease 0s;
+}
+.create-item-btn:hover {
+  line-height: 55px;
+  opacity: 1;
+  color: #EBEDEF;
+  background-color: #34495E !important;
+}
