@@ -25,7 +25,8 @@
     "nodemon": "^1.11.0",
     "npm": "^5.2.0",
     "pg": "^6.4.0",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "tether": "^1.4.0"
   },
   "devDependencies": {
     "ejs": "^2.5.6"

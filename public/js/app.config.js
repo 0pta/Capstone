@@ -15,11 +15,6 @@
       url: '/',
       component: 'app',
     })
-    .state({
-      name: 'items',
-      url: '/',
-      component: 'itemList',
-    })
   }
 
 }())

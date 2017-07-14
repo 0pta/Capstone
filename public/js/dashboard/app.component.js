@@ -14,7 +14,7 @@
       vm.$onInit = onInit
 
       function onInit () {
-        console.log('app component loaded')
+        console.log('component app loaded')
         $http.get(`${baseUrl}/api/items`)
         .then(items => {
           vm.items = items.data

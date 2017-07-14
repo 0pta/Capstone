@@ -6,3 +6,18 @@ body {
 a {
   color: #00B7FF;
 }
+
+.well {
+  max-height: 100px;
+  margin-right: 15px;
+}
+.list-column {
+  border-right: 2px solid #ddd;
+  height: 80vh;
+}
+.scrolling-div {
+  overflow: scroll;
+}
+.panel {
+  width: 100%;
+}

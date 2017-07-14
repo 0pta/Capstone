@@ -1,41 +1,172 @@
-<main class="container">
+<navigation></navigation>
+
+
+
+<!-- <splash></splash> -->
+
+
+<div class="col-md-4 list-column scrolling-div">
 
   <div class="row">
+    <div class="col-md-12">
 
-    <nav class="navbar navbar-default col-xs-1">
-      <a class="navbar-brand" ui-sref="app.dashboard">Sim</a>
-      <ul class="nav nav-pills nav-stacked">
-        <li>Link</li>
-        <li>Link</li>
-        <li>Link</li>
-        <hr>
-        <li>Link</li>
-      </ul>
-    </nav>
-
-
-		<div class="col-md-3">
-
-      <div class="row">
-        <div class="col-md-12">
-          <div ng-repeat="item in $ctrl.items" class="well">
-            <div class="media-left">
-            <div class="media-body">
-              <h4 class="media-heading">
-                <!-- <a ui-sref="app.item({id: item.id})">{{item.title}}</a> -->
-                {{item.name}}
-              </h4>
-            </div>
-          </div>
+      <div ng-repeat="item in $ctrl.items" class="well">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <!-- <a ui-sref="app.item({id: item.id})">{{item.title}}</a> -->
+            {{item.name}}
+            --- ${{item.listed_price}}
+          </h4>
+          <p>
+            {{item.description}}
+          </p>
+        </div>
+        <div class="media-left">
+          <!-- <img ng-src="{{item.image_url}}" class="media-object"> -->
+          <img src="http://lorempixel.com/85/65" class="media-object" />
         </div>
       </div>
 
-		</div>
-		<div class="col-md-8">
+      <div ng-repeat="item in $ctrl.items" class="well">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <!-- <a ui-sref="app.item({id: item.id})">{{item.title}}</a> -->
+            {{item.name}}
+            --- ${{item.listed_price}}
+          </h4>
+          <p>
+            {{item.description}}
+          </p>
+        </div>
+        <div class="media-left">
+          <!-- <img ng-src="{{item.image_url}}" class="media-object"> -->
+          <img src="http://lorempixel.com/85/65" class="media-object" />
+        </div>
+      </div>
 
-      <!-- Main Content -->
-      {{$ctrl.images}}
+    </div>
+  </div>
 
-		</div>
-	</div>
-</main>
+</div>
+
+<div class="col-md-8">
+  <!-- Main Content -->
+
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header">Dashboard</h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+
+      <div class="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-comments fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">26</div>
+                <div>New Comments!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-tasks fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">12</div>
+                <div>New Tasks!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-shopping-cart fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">124</div>
+                <div>New Orders!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-5 col-sm-4 col-xs-8">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-support fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">13</div>
+                <div>Support Tickets!</div>
+              </div>
+            </div>
+          </div>
+          <a href="#">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <notifications></notifications>
+      </div>
+      <div class="col-lg-6">
+        <info-table></info-table>
+      </div>
+    </div>
+
+  </div>
