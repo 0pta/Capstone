@@ -22,7 +22,7 @@ class Item {
   }
 
   static getCategories () {
-    return knex('categoties').select('*')
+    return knex('categories').select('*')
   }
   // ----- GET all refactorable ----- //
 
@@ -37,6 +37,23 @@ class Item {
     return knex('locations')
     .innerJoin('item_locations', 'item_locations.location_id', 'locations.id')
     .where('item_locations.item_id', id)
+  }
+
+  static getOneItemCategory (id) {
+    return knex('items')
+    .select('categories.*')
+    .innerJoin('categories', 'items.category_id', 'categories.id')
+    .where('items.id', id).first()
+  }
+
+  static create (body) {
+    return knex('items').insert(body).returning('*')
+  }
+
+  static destroy (id) {
+    // NOTE: need to keep item data for stats.
+    return knex('items').where({ id }).del()
+    // needs to delete associated images also
   }
 
 }

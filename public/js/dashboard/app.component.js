@@ -17,24 +17,24 @@
         console.log('component app loaded')
 
         $http.get(`${baseUrl}/api/items`)
-        .then(items => {
-          vm.items = items.data
+        .then(response => {
+          vm.items = response.data
         })
         .catch(err => {
           console.log(err)
         })
 
         $http.get(`${baseUrl}/api/images`)
-        .then(images => {
-          vm.images = images.data
+        .then(response => {
+          vm.images = response.data
         })
         .catch(err => {
           console.log(err)
         })
 
         $http.get(`${baseUrl}/api/locations`)
-        .then(locations => {
-          vm.locations = locations.data
+        .then(response => {
+          vm.locations = response.data
         })
         .catch(err => {
           console.log(err)

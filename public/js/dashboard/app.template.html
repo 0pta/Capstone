@@ -49,9 +49,11 @@
 </div>
 <!-- /.column -->
 
-<div class="thumbnail create-item-btn text-center">
-  Add New Item
-</div>
+  <div class="thumbnail create-item-btn text-center">
+    <a ng-click="$ctrl.toggleItemForm()">Add New Item</a>
+  </div>
+
+
 
 <div class="col-md-8">
   <!-- Main Content -->
@@ -174,3 +176,5 @@
     </div>
 
   </div>
+  <items-form></items-form>
+  <items></items>

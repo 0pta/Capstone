@@ -9,5 +9,6 @@ router.get('/images', items.getAllImages)
 router.get('/locations', items.getAllLocations)
 router.get('/itemLocations', items.getAllItemLocations)
 router.get('/items/:id', itemDetails.getOneItem)
+router.post('/items', itemDetails.create)
 
 module.exports = router
