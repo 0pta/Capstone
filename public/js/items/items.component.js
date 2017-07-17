@@ -25,6 +25,14 @@
       .catch(err => {
         console.log(err)
       })
+
+      $http.get(`${baseUrl}/api/categories`)
+      .then(response => {
+        vm.categories = response.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
 
     function toggleItemForm() {

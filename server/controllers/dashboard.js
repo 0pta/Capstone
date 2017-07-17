@@ -33,9 +33,17 @@ function getAllItemLocations (req, res, next) {
   })
   .catch(err => next(err))
 }
+
+function getAllCategories (req, res, next) {
+  Item.getCategories()
+  .then(categories => {
+    res.json(categories)
+  })
+  .catch(err => next(err))
+}
 // ----- GET all refactorable ----- //
 
 
 
 
-module.exports = { getAllItems, getAllImages, getAllLocations, getAllItemLocations }
+module.exports = { getAllItems, getAllImages, getAllLocations, getAllItemLocations, getAllCategories }

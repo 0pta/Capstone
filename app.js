@@ -6,13 +6,13 @@ const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const oauthServer = require('oauth2-server')
+const util = require('util')
 
 const index = require('./server/routes/index')
 const users = require('./server/routes/users')
 
 const app = express()
-
-// view engine setup
 
 
 // uncomment after placing your favicon in /public

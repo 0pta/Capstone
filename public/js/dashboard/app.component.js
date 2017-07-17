@@ -41,8 +41,8 @@
         })
 
         $http.get(`${baseUrl}/api/item_locations`)
-        .then(itemLocations => {
-          vm.itemLocations = itemLocations.data
+        .then(response => {
+          vm.itemLocations = response.data
         })
         .catch(err => {
           console.log(err)
