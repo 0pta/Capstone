@@ -1,17 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const knex = require('../../db/knex')
-const items = require('../controllers/dashboard')
-const itemDetails = require('../controllers/items')
+const index = require('../controllers/index')
+const items = require('../controllers/items')
 
 
-/* GET dashboard. */
-router.get('/items', items.getAllItems)
-router.get('/images', items.getAllImages)
-router.get('/locations', items.getAllLocations)
-router.get('/itemLocations', items.getAllItemLocations)
-router.get('/itemLocations', items.getAllCategories)
-router.get('/items/:id', itemDetails.getOneItem)
-router.post('/items', itemDetails.create)
+router.get('/items', index.getAllItems)
+router.get('/images', index.getAllImages)
+router.get('/locations', index.getAllLocations)
+router.get('/itemLocations', index.getAllItemLocations)
+router.get('/categories', index.getAllCategories)
+router.get('/items/:id', items.getOneItem)
+router.post('/items', items.create)
 
 module.exports = router

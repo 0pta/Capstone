@@ -2,9 +2,9 @@
   'use strict'
 
   angular.module("app")
-  .component('items', {
+  .component('itemsForm', {
     controller: controller,
-    templateUrl: './js/items/items.template.html'
+    templateUrl: './js/items/items-form.template.html'
   })
 
   controller.$inject = ['API_BASE_URL', '$http']
@@ -12,7 +12,6 @@
     const vm = this
 
     vm.$onInit = onInit
-    vm.toggleItemForm = toggleItemForm
     vm.createItem = createItem
 
     function onInit() {
@@ -33,10 +32,14 @@
       .catch(err => {
         console.log(err)
       })
-    }
 
-    function toggleItemForm() {
-      vm.addingItem = !vm.addingItem
+      $http.get(`${baseUrl}/api/locations`)
+      .then(response => {
+        vm.locations = response.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
 
     function createItem() {

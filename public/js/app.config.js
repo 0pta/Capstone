@@ -15,6 +15,18 @@
       url: '/',
       component: 'app',
     })
+    .state({
+      name: 'showItem',
+      parent: 'app',
+      url: 'items/:id',
+      component: 'showItem',
+    })
+    .state({
+      name: 'itemsForm',
+      parent: 'app',
+      url: 'new',
+      component: 'itemsForm',
+    })
   }
 
 }())

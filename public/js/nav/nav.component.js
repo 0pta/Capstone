@@ -4,8 +4,8 @@
 
   angular.module("app")
   .component('navigation', {
-    controller: controller,
-    templateUrl: './js/nav/nav.template.html'
+    templateUrl: './js/nav/nav.template.html',
+    controller: controller
   })
 
   function controller () {

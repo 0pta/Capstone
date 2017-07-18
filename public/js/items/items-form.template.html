@@ -1,23 +1,18 @@
-
 <div class="panel panel-default">
   <div class="panel-heading">
     Add Item Form
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-lg-8">
-        <form name="form" novalidate ng-submit="$ctrl.createItem()">
-          <div ng-class="{'form-group': true, 'has-error': form.category_id.$invalid && form.category_id.$touched }">
-            <label for="category_id">Category</label>
-            <input class="form-control" name="category_id" required ng-model="$ctrl.item.category_id">
-          </div>
+      <form name="form" novalidate ng-submit="$ctrl.createItem()">
+        <div class="col-lg-8">
           <div ng-class="{'form-group': true, 'has-error': form.name.$invalid && form.name.$touched }">
-            <label for="name">Name</label>
-            <input class="form-control" name="name" required ng-model="$ctrl.item.name">
+            <label for="name">Item Name</label>
+            <input class="form-control" name="name" placeholder="What are you selling?" required ng-model="$ctrl.item.name">
           </div>
           <div ng-class="{'form-group': true, 'has-error': form.description.$invalid && form.description.$touched }">
             <label>Description</label>
-            <textarea class="form-control" name="description" required ng-model="$ctrl.item.description"></textarea>
+            <textarea class="form-control" name="description" placeholder="Describe the item" required ng-model="$ctrl.item.description"></textarea>
           </div>
           <div ng-class="{'form-group': true, 'has-error': form.condition.$invalid && form.condition.$touched }">
             <label>Condition</label>
@@ -43,30 +38,34 @@
           <label>Image URL</label>
           <input class="form-control" name="image_url" required ng-model="$ctrl.item.image_url">
         </div> -->
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid">
-            Create Item
-          </button>
-        </div>
       </div>
+
       <div class="col-lg-4">
-        <div class="form-group">
+
+        <div ng-class="{'form-group': true, 'has-error': form.categories.$invalid && form.categories.$touched }">
           <label>Category</label>
-          <select class="form-control">
-            <option>Furniture</option>
-            <option>Electronics</option>
-            <option>Bathroom</option>
-            <option>Sports</option>
-            <option>Weapons</option>
-            <option>Food</option>
-            <option>Services</option>
+          <select class="form-control" name="category_id" required ng-model="$ctrl.item.category_id">
+            <option ng-repeat="category in $ctrl.categories">{{category.name}}</option>
           </select>
         </div>
-      </div>
 
+          <label>Posting to:</label>
+          <div class="funkyradio">
+            <div ng-repeat="location in $ctrl.locations" class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" id="checkbox{{location.id}}" checked/>
+            <label for="checkbox{{location.id}}">{{location.name}}</label>
+            </div>
+          </div>
 
+          <br>
+          <br>
 
-    </form>
-  </div>
+          <div class="form-group submit-button">
+            <button type="submit" class="btn btn-success" ng-disabled="form.$invalid">Create Item</button>
+            <button type="reset" class="btn btn-danger" >Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
 </div>
 </div>
