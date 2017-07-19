@@ -1,7 +1,7 @@
 (function() {
   'use strict'
 
-  angular.module('app', ['ui.router'])
+  angular.module('app', ['ui.router', 'ngClipboard'])
   .constant('API_BASE_URL', 'http://localhost:3000')
 
 }())
