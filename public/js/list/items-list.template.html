@@ -1,6 +1,6 @@
 <div class="row">
     <!-- set this up in a component -->
-    <div ng-repeat="item in $ctrl.items" class="media-object thumbnail list-div" ng-click="$ctrl.showItem(item.id)">
+    <div ng-repeat="item in $ctrl.items" class="media-object thumbnail list-div" ng-click="$ctrl.showItem(item.item_id)">
       <div class="media-body">
         <h4 class="media-heading">
           {{item.name}}
@@ -11,25 +11,8 @@
         </p>
       </div>
       <div class="media-left">
-        <!-- <img ng-src="{{item.image_url}}" class="media-object"> -->
-        <img src="http://lorempixel.com/100/80" class="media-object img-thumbnail" />
-      </div>
-    </div>
-
-    <div ng-repeat="item in $ctrl.items" class="thumbnail list-div">
-      <div class="media-body">
-        <h4 class="media-heading">
-          <!-- <a ui-sref="app.item({id: item.id})">{{item.title}}</a> -->
-          {{item.name}}
-          --- ${{item.listed_price}}
-        </h4>
-        <p>
-          {{item.description}}
-        </p>
-      </div>
-      <div class="media-left">
-        <!-- <img ng-src="{{item.image_url}}" class="media-object"> -->
-        <img src="http://lorempixel.com/100/80" class="media-object img-thumbnail" />
+        <img ng-src="{{item.cover_url}}" class="media-object img-thumbnail">
+        <!-- <img src="http://lorempixel.com/100/80" class="media-object img-thumbnail" /> -->
       </div>
     </div>
   </div>

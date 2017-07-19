@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    All Items <small>* Only deletes from items table</small>
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table all-items-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Item Name</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in $ctrl.items" class="default all-items-table-row">
+            <td>{{item.id}}</td>
+            <td><a ng-click="$ctrl.showItem(item.id)">{{item.name}}</a></td>
+            <td><a><span class="glyphicon glyphicon-pencil col-xs-push-1" aria-hidden="true"></span></a></td>
+            <td><a ng-click="$ctrl.deleteItem(item.id)"><span class="glyphicon glyphicon-remove col-xs-push-1" aria-hidden="true"></span></a></td>
+          </tr>
+        </tbody>
+      </table>
+      <p><span class="table-message">{{$ctrl.deleteMsg}}</span></p>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+</div>
+<!-- /.col-lg-6 -->

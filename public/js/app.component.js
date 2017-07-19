@@ -17,7 +17,7 @@
 
       function onInit () {
 
-        vm.addingPost = false
+        vm.addingItem = false
 
         $http.get(`${baseUrl}/api/item_locations`)
         .then(response => {
@@ -28,6 +28,7 @@
         })
 
       }
+
 
       function toggleItemForm () {
         vm.addingItem = !vm.addingItem
@@ -40,6 +41,7 @@
           vm.buttonSymbol = '+'
         }
       }
+
     }
 
 }())

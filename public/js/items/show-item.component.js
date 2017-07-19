@@ -11,24 +11,22 @@
     function controller(baseUrl, $http, $stateParams, $state) {
       const vm = this
       vm.$onInit = onInit
-      
+
       function onInit () {
         $http.get(`${baseUrl}/api/items/${$stateParams.id}`)
         .then(response => {
-          console.log(response.data);
           vm.item = response.data
+          vm.imgArr = response.data.img_urls
+          vm.locations = response.data.locations
+          console.log(vm.item);
         })
         .catch(err => {
           console.log(err)
         })
+      }
 
-        $http.get(`${baseUrl}/api/images`)
-        .then(response => {
-          vm.images = response.data
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      function carouselSwitch (i) {
+
       }
     }
 

@@ -2,8 +2,17 @@ body {
   height: 100vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+a {
+  cursor: pointer;
+}
 ul {
   list-style: none;
+}
+small {
+  font-size: 10px;
+  margin-left: 20px;
+  font-weight: lighter;
+  font-style: italic;
 }
 .app-wrapper {
   margin-left: 75px;
@@ -45,6 +54,7 @@ a.create-item-btn {
   font-size: 55px;
   font-weight: bolder;
   transition: all 0.3s ease 0s;
+  margin-left: -10px
 }
 #nav1:hover {
   opacity: 1;
@@ -55,8 +65,12 @@ a.create-item-btn {
 #nav1:active {
   border: 3px solid #86D3FF;
 }
-#nav1 {
-  margin-left: -10px
+#nav1 + .tooltip > .tooltip-inner {
+  width: 60px;
+  background-color: #34495E;
+}
+#nav1 + .tooltip > .tooltip-arrow {
+  border-right-color: #34495E;
 }
 
 .page-header {
@@ -76,11 +90,17 @@ a.create-item-btn {
   background-color: #86D3FF;
   transition: all 0.3s ease 0s;
 }
-.list-div:active {
-
+.all-items-table-row:hover {
+  background-color: #86D3FF;
+  transition: all 0.3s ease 0s;
 }
+
 .list-column {
   height: 100vh;
+}
+img.img-thumbnail {
+  width: 100px;
+  height: 80px;
 }
 .scrolling-div {
   overflow: scroll;
@@ -131,4 +151,32 @@ a.create-item-btn {
   padding-top: 12px;
   width: 100%;
   margin-left: -15px;
+}
+
+span.table-message {
+  color: red;
+  font-weight: bold;
+}
+
+.item {
+  overflow: scroll;
+  display: inline-block;
+    cursor: pointer;
+    height: 200px;
+    width: 200px;
+}
+
+ul.hide-bullets > li {
+    display: inline-block;
+}
+
+.carousel-img {
+    cursor: pointer;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.carousel-inner{
+  border-color: black;
+  height: 200px;
 }

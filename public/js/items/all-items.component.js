@@ -2,8 +2,8 @@
   'use strict'
 
   angular.module('app')
-    .component('itemsList', {
-      templateUrl: './js/list/items-list.template.html',
+    .component('allItems', {
+      templateUrl: './js/items/all-items.template.html',
       controller: controller
     })
 
@@ -13,25 +13,30 @@
 
       vm.$onInit = onInit
       vm.toggleItemShow = toggleItemShow
+      vm.deleteItem = deleteItem
       vm.showItem = showItem
 
       function onInit () {
-        vm.items = []
+
         $http.get(`${baseUrl}/api/items`)
         .then(response => {
-          vm.itemIds = response.data.map(item => item.id)
-          return vm.itemIds.forEach(id => {
-            console.log(id);
-            $http.get(`${baseUrl}/api/items/${id}`)
-            .then(response => {
-              vm.items.push(response.data)
-            })
-          })
+          vm.items = response.data
+
         })
         .catch(err => {
           console.log(err)
         })
-        console.log(vm.items);
+      }
+
+      function deleteItem (id) {
+        $http.delete(`${baseUrl}/api/items/${id}`)
+        .then(() => {
+          console.log(`DELETED ITEM #${id}`)
+          vm.deleteMsg = `DELETED ITEM #${id}`
+          vm.items = vm.items.filter(item => {
+            return item.id != id
+          })
+        })
       }
 
       function showItem (id) {
@@ -40,9 +45,8 @@
       }
 
       function toggleItemShow() {
-        vm.addingItem = !vm.addingItem
+        vm.showingItem = !vm.showingItem
       }
     }
-
 
 })()

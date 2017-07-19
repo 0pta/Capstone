@@ -16,6 +16,12 @@
       component: 'app',
     })
     .state({
+      name: 'allItems',
+      parent: 'app',
+      url: 'items/all',
+      component: 'allItems',
+    })
+    .state({
       name: 'showItem',
       parent: 'app',
       url: 'items/:id',

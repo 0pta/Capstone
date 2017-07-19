@@ -10,7 +10,8 @@ function getOneItem (req, res, next) {
     result.forEach(obj => {
       imgArr.push(obj.img_url)
     })
-    newItem.img_url = imgArr
+    newItem.img_urls = imgArr
+    newItem.cover_url = imgArr[0]
     return Item.getOneItemLocations(id)
   }).then(result => {
     let locations = []
@@ -21,8 +22,25 @@ function getOneItem (req, res, next) {
     return Item.getOneItemCategory(id)
     .then(result => {
       newItem.category = result.name
+      delete newItem.img_url
       res.json(newItem)
     })
+  })
+  .catch(err => next(err))
+}
+
+function getOneImages (req, res, next) {
+  const id = req.params.id
+  let newItem;
+  Item.getOneItemImages(id)
+  .then(result => {
+    newItem = result[0]
+    let imgArr = []
+    result.forEach(obj => {
+      imgArr.push(obj.img_url)
+    })
+    newItem.img_url = imgArr
+    res.json(newItem)
   })
   .catch(err => next(err))
 }
@@ -31,10 +49,15 @@ function create (req, res, next) {
   Item.create(req.body).then(([item]) => res.json(`/items/${item.id}`))
 }
 
-function destroyOneItem (req, res, next) {
+//this deletes from item table only
+function deleteOneItem (req, res, next) {
   const id = req.params.id
+  Item.destroy(id)
+  .then(() => {
+    res.send('Deleted')
+  })
 }
 
 
 
-module.exports = { getOneItem, create }
+module.exports = { getOneItem, getOneImages, create, deleteOneItem }
