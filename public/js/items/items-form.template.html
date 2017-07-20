@@ -45,7 +45,7 @@
         <div ng-class="{'form-group': true, 'has-error': form.categories.$invalid && form.categories.$touched }">
           <label>Category</label>
           <select class="form-control" name="category_id" required ng-model="$ctrl.item.category_id">
-            <option ng-repeat="category in $ctrl.categories">{{category.name}}</option>
+            <option ng-repeat="category in $ctrl.categories" value="{{category.id}}">{{category.name}}</option>
           </select>
         </div>
 

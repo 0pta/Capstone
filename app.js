@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const oauthServer = require('oauth2-server')
 const util = require('util')
+const Promise = require("bluebird");
 
 const index = require('./server/routes/index')
 const users = require('./server/routes/users')

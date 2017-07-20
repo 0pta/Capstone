@@ -10,13 +10,12 @@
     controller.$inject = ['API_BASE_URL', '$http', '$stateParams', '$state']
     function controller(baseUrl, $http, $stateParams, $state) {
       const vm = this
-
       vm.$onInit = onInit
       vm.toggleItemForm = toggleItemForm
       vm.buttonSymbol = '+'
+      vm.message_ = 'Yeeeeeeeeee!';
 
       function onInit () {
-
         vm.addingItem = false
 
         $http.get(`${baseUrl}/api/item_locations`)
@@ -26,7 +25,10 @@
         .catch(err => {
           console.log(err)
         })
+      }
 
+      vm.getMessage = function () {
+        return vm.message_
       }
 
 
@@ -41,6 +43,7 @@
           vm.buttonSymbol = '+'
         }
       }
+
 
     }
 

@@ -1,29 +1,29 @@
 angular.module('ngClipboard', [])
 
-    .factory('ngClipboard', function($compile,$rootScope,$document) {
+    .factory('ngClipboard', function( $compile, $rootScope, $document ) {
         return {
             toClipboard: function(element){
 
-            var copyElement = angular.element('<span id="ngClipboardCopyId">'+element+'</span>');
-            var body = $document.find('body').eq(0);
-            body.append($compile(copyElement)($rootScope));
+            var copyElement = angular.element('<span id="ngClipboardCopyId">'+element+'</span>')
+            var body = $document.find('body').eq(0)
+            body.append($compile(copyElement)($rootScope))
 
-            var ngClipboardElement = angular.element(document.getElementById('ngClipboardCopyId'));
-            console.log(ngClipboardElement);
-            var range = document.createRange();
+            var ngClipboardElement = angular.element(document.getElementById('ngClipboardCopyId'))
+            console.log(ngClipboardElement)
+            var range = document.createRange()
 
-            range.selectNode(ngClipboardElement[0]);
+            range.selectNode(ngClipboardElement[0])
 
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
+            window.getSelection().removeAllRanges()
+            window.getSelection().addRange(range)
 
-            var successful = document.execCommand('copy');
+            var successful = document.execCommand('copy')
 
-            var msg = successful ? 'successful' : 'unsuccessful';
-            console.log('Copying text command was ' + msg);
-            window.getSelection().removeAllRanges();
+            var msg = successful ? 'successful' : 'unsuccessful'
+            console.log('Copying text command was ' + msg)
+            window.getSelection().removeAllRanges()
 
-            copyElement.remove();
+            copyElement.remove()
         }
     }
     })
@@ -32,20 +32,20 @@ angular.module('ngClipboard', [])
         return {
             restrict: 'A',
             link:link
-        };
+        }
         function link(scope, element, attrs) {
             element.bind('click',function(){
 
-                var range = document.createRange();
-                range.selectNode(element[0]);
-                window.getSelection().removeAllRanges();
-                window.getSelection().addRange(range);
-                var successful = document.execCommand('copy');
+                var range = document.createRange()
+                range.selectNode(element[0])
+                window.getSelection().removeAllRanges()
+                window.getSelection().addRange(range)
+                var successful = document.execCommand('copy')
 
-                var msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Copying text command was ' + msg);
-                window.getSelection().removeAllRanges();
-            });
+                var msg = successful ? 'successful' : 'unsuccessful'
+                console.log('Copying text command was ' + msg)
+                window.getSelection().removeAllRanges()
+            })
         }
 
-    });
+    })

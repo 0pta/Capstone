@@ -32,6 +32,12 @@
       parent: 'app',
       url: 'new',
       component: 'itemsForm',
+      onEnter: function(){
+        let trigger = true
+      },
+      onExit: function(){
+        let trigger = false
+      }
     })
   }
 

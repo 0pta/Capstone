@@ -35,13 +35,11 @@
     </div>
   </div>
 
-  <!-- <div class="row">
-    <div class="col-lg-6">
-      <notifications></notifications>
-    </div>
-    <div class="col-lg-6">
-      <info-table></info-table>
-    </div>
-  </div> -->
+  
+  <div ng-app="app">
+    <h1 id="foo">{{$ctrl.getMessage()}}</h1>
+    <button ngclipboard data-clipboard-target="#foo">Copy</button>
+  </div>
+
 
 </div>
