@@ -58,6 +58,20 @@ exports.seed = function(knex) {
           location_id: 4,
           created_at: new Date(),
           updated_at: new Date()
+        },
+        {
+          id: 9,
+          item_id: 4,
+          location_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 10,
+          item_id: 4,
+          location_id: 4,
+          created_at: new Date(),
+          updated_at: new Date()
         }
       ]
     )

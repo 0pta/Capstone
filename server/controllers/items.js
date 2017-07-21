@@ -1,4 +1,5 @@
 const Item = require('../models/items.js')
+// const { User } = require('../models')
 
 function getOneItem (req, res, next) {
   const id = req.params.id

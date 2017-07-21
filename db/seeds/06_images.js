@@ -73,6 +73,20 @@ exports.seed = function(knex) {
           created_at: new Date(),
           updated_at: new Date()
         },
+        {
+          id: 11,
+          item_id: 4,
+          img_url: 'https://res.cloudinary.com/dnqlnjcaf/image/upload/v1499882120/FB_IMG_1498091480623_ccxalu.jpg',
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 12,
+          item_id: 4,
+          img_url: 'https://res.cloudinary.com/dnqlnjcaf/image/upload/v1499882129/IMG-20150323-WA0006_on3k3h.jpg',
+          created_at: new Date(),
+          updated_at: new Date()
+        },
       ]
     )
   })

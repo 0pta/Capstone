@@ -22,9 +22,10 @@
         vm.items = []
         $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items`)
         .then(response => {
+          console.log(response);
           vm.itemIds = response.data.map(item => item.id)
           return vm.itemIds.forEach(id => {
-            $http.get(`${baseUrl}/api/items/${id}`)
+            $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items/${id}`)
             .then(response => {
               vm.items.push(response.data)
             })

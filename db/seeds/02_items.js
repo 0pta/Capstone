@@ -41,6 +41,19 @@ exports.seed = function(knex) {
           user_id: 3,
           created_at: new Date(),
           updated_at: new Date()
+        },
+        {
+          id: 4,
+          category_id: '7',
+          name: 'More Licks',
+          description: 'This is a service. Not sure I can sell services on here.',
+          condition: 'Perfect',
+          cost: 0,
+          listed_price: 100,
+          sold_price: 99,
+          user_id: 3,
+          created_at: new Date(),
+          updated_at: new Date()
         }
       ]
     )
