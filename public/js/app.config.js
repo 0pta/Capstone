@@ -12,20 +12,28 @@
     $stateProvider
     .state({
       name: 'app',
-      url: '/',
+      url: '/app',
       component: 'app',
+      requiresLogin: true
+    })
+    .state({
+      name: 'login',
+      url: '/',
+      component: 'login'
     })
     .state({
       name: 'allItems',
       parent: 'app',
       url: 'items/all',
       component: 'allItems',
+      requiresLogin: true
     })
     .state({
       name: 'showItem',
       parent: 'app',
       url: 'items/:id',
       component: 'showItem',
+      requiresLogin: true
     })
     .state({
       name: 'itemsForm',
@@ -37,7 +45,8 @@
       },
       onExit: function(){
         let trigger = false
-      }
+      },
+      requiresLogin: true
     })
   }
 

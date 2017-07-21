@@ -1,12 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const knex = require('../../db/knex')
+const { users: ctrl } = require('../controllers')
+const { isLoggedIn, isAuthorized } = require('../lib/auth')
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
-  knex('users').select('*').then(users => {
-    res.json({ users })
-  })
-})
+router.get('/', ctrl.index)
+router.get('/:id', isLoggedIn, isAuthorized, ctrl.show)
+router.get('/:id/items', isLoggedIn, isAuthorized, ctrl.getItemsByUserId )
+router.post('/', ctrl.create)
 
 module.exports = router

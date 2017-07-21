@@ -56,6 +56,17 @@ class Item {
     // needs to delete associated images also
   }
 
+  //BY USER
+
+  static getItemsByUserId (id) {
+    return knex('items').where('user_id', id)
+    // .innerJoin('images', 'items.id', 'images.item_id')
+    // .innerJoin('categories', 'items.category_id', 'categories.id')
+    // .innerJoin('item_locations', 'items.id', 'item_locations.item_id')
+    // .innerJoin('locations', 'locations.id', 'item_locations.location_id')
+
+  }
+
 }
 
 module.exports = Item

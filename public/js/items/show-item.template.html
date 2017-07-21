@@ -32,10 +32,6 @@
             <label>User ID</label>
             <input class="form-control" name="user_id" required ng-model="$ctrl.item.user_id">
           </div>
-          <!-- <div ng-class="{'form-group': true, 'has-error': form.image_url.$invalid && form.image_url.$touched }">
-          <label>Image URL</label>
-          <input class="form-control" name="image_url" required ng-model="$ctrl.item.image_url">
-        </div> -->
       </div>
 
       <div class="col-lg-4">
@@ -50,7 +46,7 @@
           <label>Posted to:</label>
           <div class="funkyradio">
             <div ng-repeat="location in $ctrl.locations" class="funkyradio-primary">
-            <input type="checkbox" name="checkbox" id="checkbox{{location.id}}" checked/>
+            <input type="checkbox" name="checkbox"  id="checkbox{{location.id}}" checked disabled=""/>
             <label for="checkbox{{location.id}}">{{location.name}}</label>
             </div>
           </div>
@@ -58,10 +54,7 @@
           <br>
           <br>
 
-          <div class="form-group submit-button">
-            <button type="submit" class="btn btn-success" ng-disabled="form.$invalid">Create Item</button>
-            <button type="reset" class="btn btn-danger" >Reset</button>
-          </div>
+
         </div>
       </form>
     </div>

@@ -7,21 +7,23 @@
       controller: controller
     })
 
-    controller.$inject = ['API_BASE_URL', '$http', '$state']
-    function controller(baseUrl, $http, $state) {
+    controller.$inject = ['API_BASE_URL', '$http', '$state', 'SessionsService', 'UsersService']
+    function controller(baseUrl, $http, $state, SessionsService, UsersService) {
       const vm = this
 
+      vm.user = {}
       vm.$onInit = onInit
       vm.toggleItemShow = toggleItemShow
       vm.showItem = showItem
 
+
       function onInit () {
+        console.log(SessionsService.user);
         vm.items = []
-        $http.get(`${baseUrl}/api/items`)
+        $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items`)
         .then(response => {
           vm.itemIds = response.data.map(item => item.id)
           return vm.itemIds.forEach(id => {
-            console.log(id);
             $http.get(`${baseUrl}/api/items/${id}`)
             .then(response => {
               vm.items.push(response.data)

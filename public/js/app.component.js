@@ -7,13 +7,20 @@
       controller: controller
     })
 
-    controller.$inject = ['API_BASE_URL', '$http', '$stateParams', '$state']
-    function controller(baseUrl, $http, $stateParams, $state) {
+    controller.$inject = ['API_BASE_URL', '$http', '$stateParams', '$state', 'SessionsService', 'UsersService']
+    function controller(baseUrl, $http, $stateParams, $state, SessionsService, UsersService) {
       const vm = this
+      vm.user = {}
       vm.$onInit = onInit
       vm.toggleItemForm = toggleItemForm
       vm.buttonSymbol = '+'
       vm.message_ = 'Yeeeeeeeeee!';
+
+      UsersService.show(SessionsService.user.id)
+      .then(function (result) { vm.user = result.data.user })
+      .catch(function (result) {
+        $state.go('/', { notification: 'You do not have access to that page.' })
+      })
 
       function onInit () {
         vm.addingItem = false

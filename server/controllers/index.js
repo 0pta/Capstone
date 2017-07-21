@@ -1,5 +1,6 @@
 const Item = require('../models/items.js')
-
+const users = require('./users')
+const sessions = require('./sessions')
 
 // ----- GET all refactorable ----- //
 function getAllItems (req, res, next) {
@@ -46,4 +47,4 @@ function getAllCategories (req, res, next) {
 
 
 
-module.exports = { getAllItems, getAllImages, getAllLocations, getAllItemLocations, getAllCategories }
+module.exports = { getAllItems, getAllImages, getAllLocations, getAllItemLocations, getAllCategories, sessions, users }

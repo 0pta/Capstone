@@ -24,10 +24,6 @@
           console.log(err)
         })
       }
-
-      function carouselSwitch (i) {
-
-      }
     }
 
 
