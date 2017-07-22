@@ -50,6 +50,10 @@ class Item {
     return knex('items').insert(body).returning('*')
   }
 
+  static addImages (body) {
+    return knex('images').insert(body).returning('*')
+  }
+
   static destroy (id) {
     // NOTE: need to keep item data for stats.
     return knex('items').where({ id }).del()

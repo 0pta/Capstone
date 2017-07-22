@@ -24,21 +24,21 @@
     .state({
       name: 'allItems',
       parent: 'app',
-      url: 'items/all',
+      url: '/items/all',
       component: 'allItems',
       requiresLogin: true
     })
     .state({
       name: 'showItem',
       parent: 'app',
-      url: 'items/:id',
+      url: '/items/:id',
       component: 'showItem',
       requiresLogin: true
     })
     .state({
       name: 'itemsForm',
       parent: 'app',
-      url: 'new',
+      url: '/new',
       component: 'itemsForm',
       onEnter: function(){
         let trigger = true

@@ -13,7 +13,8 @@ router.get('/locations', isLoggedIn, index.getAllLocations)
 router.get('/itemLocations', isLoggedIn, index.getAllItemLocations)
 router.get('/categories', isLoggedIn, index.getAllCategories)
 router.get('/items/:id', isLoggedIn, isAuthorized, items.getOneItem)
-router.post('/items', isLoggedIn, isAuthorized, items.create)
-router.delete('/items/:id', isLoggedIn, isAuthorized, items.deleteOneItem)
+router.post('/items', isLoggedIn, items.create)
+router.post('/images', isLoggedIn, items.addImages)
+router.delete('/items/:id', isLoggedIn, items.deleteOneItem)
 
 module.exports = router

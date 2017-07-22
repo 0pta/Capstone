@@ -50,6 +50,10 @@ function create (req, res, next) {
   Item.create(req.body).then(([item]) => res.json(`/items/${item.id}`))
 }
 
+function addImages (req, res, next) {
+  Item.addImages(req.body).then(([image]) => res.json(`/images/${image.id}`))
+}
+
 //this deletes from item table only
 function deleteOneItem (req, res, next) {
   const id = req.params.id
@@ -61,4 +65,4 @@ function deleteOneItem (req, res, next) {
 
 
 
-module.exports = { getOneItem, getOneImages, create, deleteOneItem }
+module.exports = { getOneItem, getOneImages, create, deleteOneItem, addImages }

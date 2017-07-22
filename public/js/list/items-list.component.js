@@ -18,7 +18,6 @@
 
 
       function onInit () {
-        console.log(SessionsService.user);
         vm.items = []
         $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items`)
         .then(response => {

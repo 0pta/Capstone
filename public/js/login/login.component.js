@@ -5,8 +5,8 @@
       controller: controller
     })
 
-  controller.$inject = ['API_BASE_URL', '$http', '$stateParams', 'SessionsService', 'UsersService']
-  function controller (baseUrl, $http, $stateParams, SessionsService, UsersService) {
+  controller.$inject = ['API_BASE_URL', '$http', '$stateParams', '$state', 'SessionsService', 'UsersService']
+  function controller (baseUrl, $http, $stateParams, $state, SessionsService, UsersService) {
     const vm = this
 
     vm.$onInit = onInit
@@ -45,6 +45,7 @@
         .then(function () {
           vm.reset()
           vm.response = 'You successfully logged in!'
+          $state.go('app')
         })
         .catch(function (result) {
           vm.errors.push(result.data.err)

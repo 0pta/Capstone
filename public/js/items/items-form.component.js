@@ -7,12 +7,13 @@
     templateUrl: './js/items/items-form.template.html'
   })
 
-  controller.$inject = ['API_BASE_URL', '$http']
-  function controller(baseUrl, $http) {
+  controller.$inject = ['API_BASE_URL', '$http','$stateParams', '$state', 'SessionsService', 'UsersService']
+  function controller(baseUrl, $http, $stateParams, $state, SessionsService, UsersService) {
     const vm = this
 
     vm.$onInit = onInit
     vm.createItem = createItem
+    vm.showItem = showItem
 
     function onInit() {
       console.log('component items loaded')
@@ -42,14 +43,28 @@
       })
     }
 
-    function createItem() {
+    function showItem (id) {
+      $state.go('showItem', {id})
+    }
+
+    function createItem () {
       $http.post('/api/items', vm.item)
       .then(response => {
+        console.log('1stpost', response.data)
+
+        // let obj = {item_id: reponse.data.id, image_url: vm.image}
+        //
+        // $http.post('/api/images', obj)
+
+
         vm.items.push(response.data)
-        vm.toggleItemForm()
         delete vm.item
       })
     }
+
+    // function addImages () {
+    //
+    // }
 
   }
 
