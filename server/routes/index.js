@@ -14,7 +14,7 @@ router.get('/itemLocations', isLoggedIn, index.getAllItemLocations)
 router.get('/categories', isLoggedIn, index.getAllCategories)
 router.get('/items/:id', isLoggedIn, isAuthorized, items.getOneItem)
 router.post('/items', isLoggedIn, items.create)
-router.post('/images', isLoggedIn, items.addImages)
+router.post('/images', items.addImages)
 router.delete('/items/:id', isLoggedIn, items.deleteOneItem)
 
 module.exports = router

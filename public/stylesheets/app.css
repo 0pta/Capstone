@@ -180,13 +180,11 @@ ul.hide-bullets > li {
     display: inline-block;
 }
 
-.carousel-img {
-    cursor: pointer;
-    max-width: 80px;
-    max-height: 80px;
+.image-small {
+  height: 85px;
+  width: 100px;
 }
-
-.carousel-inner{
-  border-color: black;
-  height: 200px;
+.image-large {
+  height: 200;
+  width: 225;
 }

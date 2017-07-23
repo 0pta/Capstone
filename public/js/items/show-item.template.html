@@ -2,51 +2,27 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <form name="form" novalidate ng-submit="$ctrl.createItem()">
-        <div class="col-lg-8">
-          <div ng-class="{'form-group': true, 'has-error': form.name.$invalid && form.name.$touched }">
-            <label for="name">Item Name</label>
-            <input class="form-control" name="name" placeholder="What are you selling?" required ng-model="$ctrl.item.name">
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.description.$invalid && form.description.$touched }">
-            <label>Description</label>
-            <textarea class="form-control" name="description" placeholder="Describe the item" required ng-model="$ctrl.item.description"></textarea>
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.condition.$invalid && form.condition.$touched }">
-            <label>Condition</label>
-            <input class="form-control" name="condition" required ng-model="$ctrl.item.condition">
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.cost.$invalid && form.cost.$touched }">
-            <label>Cost</label>
-            <input class="form-control" name="cost" required ng-model="$ctrl.item.cost">
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.listed_price.$invalid && form.listed_price.$touched }">
-            <label>Listed Price</label>
-            <input class="form-control" name="listed_price" required ng-model="$ctrl.item.listed_price">
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.sold_price.$invalid && form.sold_price.$touched }">
-            <label>Sold Price</label>
-            <input class="form-control" name="sold_price" required ng-model="$ctrl.item.sold_price">
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.user_id.$invalid && form.user_id.$touched }">
-            <label>User ID</label>
-            <input class="form-control" name="user_id" required ng-model="$ctrl.item.user_id">
-          </div>
+      <div class="col-md-4">
+        {{$ctrl.item.name}}
+        {{$ctrl.item.description}}
+        {{$ctrl.item.condition}}
+        {{$ctrl.item.cost}}
+        {{$ctrl.item.listed_price}}
+        {{$ctrl.item.sold_price}}
+        {{$ctrl.item.user_id}}
+        {{$ctrl.item.category}}
       </div>
+    </div>
+        <br>
 
-      <div class="col-lg-4">
-
-        <div ng-class="{'form-group': true, 'has-error': form.categories.$invalid && form.categories.$touched }">
-          <label>Category</label>
-          <select class="form-control" name="category_id" required ng-model="$ctrl.item.category_id">
-            <option ng-repeat="category in $ctrl.categories">{{category.name}}</option>
-          </select>
-        </div>
-
-          <label>Posted to:</label>
+          <label>Where have you posted this?</label>
           <div class="funkyradio">
-            <div ng-repeat="location in $ctrl.locations" class="funkyradio-primary">
-            <input type="checkbox" name="checkbox"  id="checkbox{{location.id}}" checked disabled=""/>
+            <div ng-repeat="location in $ctrl.isInlocations" class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" checked  id="checkbox{{location.id}}"/>
+            <label for="checkbox{{location.id}}">{{location.name}}</label>
+            </div>
+            <div ng-repeat="location in $ctrl.isNotlocations" class="funkyradio-primary">
+            <input type="checkbox" name="checkbox"  id="checkbox{{location.id}}"/>
             <label for="checkbox{{location.id}}">{{location.name}}</label>
             </div>
           </div>
@@ -54,10 +30,14 @@
           <br>
           <br>
 
-
-        </div>
-      </form>
-    </div>
+          <div class="image-small" ng-repeat="img_url in $ctrl.imgArr">
+            <a ng-click="$ctrl.enlargeImage(img_url)" class="thumbnail" id="{{$ctrl.imgArr.indexOf(img_url)}}">
+              <img class="img-responsive" src="{{img_url}}">
+            </a>
+          </div>
+          <div class="image-large">
+            <img class="img-responsive" ng-src="{{$ctrl.largeImage}}">
+          </div>
 </div>
 
 
@@ -71,11 +51,7 @@
   <!-- <div class="panel-body">
     <div class="row">
       <div class="col-md-2">
-        <div ng-repeat="img_url in $ctrl.imgArr">
-          <a ng-click="$ctrl.carouselSwitch(indexOf(img_url))" class="thumbnail carousel-img" data-slide-number="{{$ctrl.imgArr.indexOf(img_url)}}">
-            <img class="img-responsive" src="{{img_url}}">
-          </a>
-        </div>
+
       </div>
       <div class="col-md-3">
         <div class="carousel slide" data-interval="1000">
@@ -87,5 +63,5 @@
         </div>
       </div>
     </div>
-  </div>-->
+  </div> -->
 </div>

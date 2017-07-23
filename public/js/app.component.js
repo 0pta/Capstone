@@ -7,8 +7,8 @@
       controller: controller
     })
 
-    controller.$inject = ['API_BASE_URL', '$http', '$stateParams', '$state', 'SessionsService', 'UsersService']
-    function controller(baseUrl, $http, $stateParams, $state, SessionsService, UsersService) {
+    controller.$inject = ['API_BASE_URL', '$http', '$stateParams', '$state', 'SessionsService', 'UsersService', 'itemListService']
+    function controller(baseUrl, $http, $stateParams, $state, SessionsService, UsersService, itemListService) {
       const vm = this
       vm.user = {}
       vm.$onInit = onInit
@@ -50,7 +50,6 @@
           vm.buttonSymbol = '+'
         }
       }
-
 
     }
 

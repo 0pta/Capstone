@@ -34,26 +34,22 @@
             <label>User ID</label>
             <input class="form-control" name="user_id" required ng-model="$ctrl.item.user_id">
           </div>
-          <div ng-class="{'form-group': true, 'has-error': form.image_url.$invalid && form.image_url.$touched }">
-          <label>Image URL</label>
-          <input class="form-control" name="image_url" required ng-model="$ctrl.item.image_url">
         </div>
-      </div>
 
-      <div class="col-lg-4">
+        <div class="col-lg-4">
 
-        <div ng-class="{'form-group': true, 'has-error': form.categories.$invalid && form.categories.$touched }">
-          <label>Category</label>
-          <select class="form-control" name="category_id" required ng-model="$ctrl.item.category_id">
-            <option ng-repeat="category in $ctrl.categories" value="{{category.id}}">{{category.name}}</option>
-          </select>
-        </div>
+          <div ng-class="{'form-group': true, 'has-error': form.categories.$invalid && form.categories.$touched }">
+            <label>Category</label>
+            <select class="form-control" name="category_id" required ng-model="$ctrl.item.category_id">
+              <option ng-repeat="category in $ctrl.categories" value="{{category.id}}">{{category.name}}</option>
+            </select>
+          </div>
 
           <label>Posting to:</label>
           <div class="funkyradio">
             <div ng-repeat="location in $ctrl.locations" class="funkyradio-primary">
-            <input type="checkbox" name="checkbox" id="checkbox{{location.id}}" checked/>
-            <label for="checkbox{{location.id}}">{{location.name}}</label>
+              <input type="checkbox" name="checkbox" id="checkbox{{location.id}}" checked/>
+              <label for="checkbox{{location.id}}">{{location.name}}</label>
             </div>
           </div>
 
@@ -68,7 +64,39 @@
       </form>
     </div>
     <div class="row">
-      
+
     </div>
+  </div>
 </div>
+
+<div ng-show="$ctrl.showingImageForm" class="panel panel-default">
+  <div class="panel-heading">
+    Add Images Form
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <form name="imageForm" novalidate ng-submit="$ctrl.addImages()">
+        <div class="col-lg-8">
+          <div ng-class="{'form-group': true, 'has-error': imageForm.image_url.$invalid && imageForm.image_url.$touched }">
+            <label>Image URL</label>
+            <input class="form-control" name="image_url" required ng-model="$ctrl.image.image_url">
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+
+          <br>
+          <br>
+
+          <div class="form-group submit-button">
+            <button type="submit" class="btn btn-success" ng-disabled="imageForm.$invalid">Add Images</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+
+    </div>
+  </div>
 </div>
