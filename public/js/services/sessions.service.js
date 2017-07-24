@@ -8,7 +8,7 @@
     sessionService.user = {}
 
     sessionService.refresh = function () {
-      return $http.get(`/api/sessions/refresh`).then(function (result) {
+      return $http.get(`${baseUrl}/api/sessions/refresh`).then(function (result) {
         var response = result.data
         response ? Object.assign(sessionService.user, response.user) : Object.assign(sessionService.user, {})
       })

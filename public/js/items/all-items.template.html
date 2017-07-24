@@ -1,8 +1,18 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    All Items <small>* Only deletes from items table</small>
+    All Items
+    <small>*From ALL users. Only deletes from items table</small>
   </div>
   <!-- /.panel-heading -->
+  <div class="col-md-1 pull-right">
+    <i class="fa fa-th pull-right"></i>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="item in $ctrl.items" class="all-items-thumbnails col-md-2">
+      <img ng-src="{{item.cover_url}}" class="img-thumbnail img-thumbnails">
+    </div>
+  </div>
+
   <div class="panel-body">
     <div class="table-responsive">
       <table class="table all-items-table">
@@ -23,7 +33,9 @@
           </tr>
         </tbody>
       </table>
-      <p><span class="table-message alert alert-danger">{{$ctrl.deleteMsg}}</span></p>
+      <div ng-show="$ctrl.showingDelete" class="alert alert-warning table-message">
+        <p>{{$ctrl.deleteMsg}}</p>
+      </div>
     </div>
     <!-- /.table-responsive -->
   </div>

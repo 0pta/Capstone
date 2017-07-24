@@ -3,7 +3,7 @@ const router = express.Router()
 const { sessions: ctrl } = require('../controllers')
 const { isLoggedIn } = require('../lib/auth.js')
 
-router.get('/sessions/refresh', isLoggedIn, ctrl.refresh)
+router.get('/refresh', isLoggedIn, ctrl.refresh)
 router.post('/', ctrl.create)
 router.delete('/', isLoggedIn, ctrl.destroy)
 

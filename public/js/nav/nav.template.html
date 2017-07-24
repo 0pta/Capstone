@@ -1,7 +1,17 @@
-<nav class="sidebar-nav">
+<div class="row">
+  <nav class="sidebar-nav">
+    <div class="nav-spacer"></div>
+    <div class="nav-link text-center">
+      <i class="fa fa-th-list" data-placement="right"
+      title="View All Items"
+      onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.showAllItems()"></i>
+    </div>
+    <div class="nav-spacer"></div>
+    <div class="nav-link text-center">
+      <i class="fa fa-search" data-placement="right"
+      title="Search All"
+      onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.showAllItems()"></i>
+    </div>
+  </nav>
 
-  <img id="nav1" src="http://lorempixel.com/30/30" class="media-object img-thumbnail" data-placement="right"
-  title="View All Items"
-  onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.showAllItems()" />
-
-</nav>
+</div>
