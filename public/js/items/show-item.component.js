@@ -12,6 +12,8 @@
       const vm = this
       vm.$onInit = onInit
       vm.enlargeImage = enlargeImage
+      vm.diff = Array.prototype.diff
+      vm.getNotLocations = getNotLocations
 
       function onInit () {
         $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items/${$stateParams.id}`)
@@ -19,12 +21,17 @@
           vm.item = response.data
           vm.imgArr = response.data.img_urls
           vm.category = response.data.category
-          vm.isInlocations = response.data.locations
+          vm.isInLocations = response.data.locations
           vm.largeImage = response.data.cover_url
-          console.log(vm.item);
           return $http.get(`${baseUrl}/api/locations`)
           .then(response => {
-            vm.isNotlocations = response.data
+            vm.allLocations = response.data
+            let isInIds = vm.isInLocations.map(location => location.location_id)
+            let allIds = vm.allLocations.map(location => location.id)
+            let isNotIds = allIds.diff(isInIds)
+            console.log(isNotIds);
+            vm.isNotLocations = getNotLocations(vm.allLocations, isNotIds)
+            console.log('is not in these', vm.isNotLocations);
           })
         })
         .catch(err => {
@@ -33,8 +40,24 @@
 
       }
 
-      function enlargeImage (img_url) {
-        vm.largeImage = img_url
+      // returns array of locations Item is not listed in
+      function getNotLocations (locations, ids) {
+        let isNotLocationsArr = []
+        locations.forEach((location) => {
+          if (ids.indexOf(location.id) >= 0) {
+            isNotLocationsArr.push(location)
+          }
+        })
+        return isNotLocationsArr
+      }
+
+      // filters difference of 2 Arrays function
+      Array.prototype.diff = function(a) {
+        return this.filter(function(i) {return a.indexOf(i) < 0;})
+      }
+
+      function enlargeImage(url) {
+        vm.largeImage = url
       }
 
       function addLocations () {

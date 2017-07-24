@@ -202,32 +202,43 @@ span.table-message {
     height: 200px;
     width: 200px;
 }
-
 ul.hide-bullets > li {
     display: inline-block;
 }
 
 
-.show-item-header {
-  font-family: verdana;
-  margin-bottom: 0px;
+.panel-heading-text {
+  font-size: 18px;
 }
 .photos {
   height: 40vh;
 }
-.image-small {
-  height: 80px;
-  width: 80px;
-  max-height: 100px;
-}
 img#image-small {
-  max-height: 50px;
+  max-height: 60px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.3s ease 0s;
 }
-.image-small-list {
-  display: inline-block;
-  margin: 0;
-  height:70px;
+img#image-small:hover {
+  border: 2px solid #86D3FF;
+  cursor: pointer;
+  opacity: 1;
 }
 img#image-large {
   max-height: 225px;
+  border: 2px solid #ddd;
+}
+ul.img-list-group {
+  padding-left: 0;
+}
+ul.img-list-group:after {
+  clear: both;
+  display: block;
+  content: "";
+}
+
+.img-list-group-item {
+    float: left;
+    margin-top: 2px;
 }

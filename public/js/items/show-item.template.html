@@ -1,71 +1,68 @@
 
-<div class="panel panel-default">
-  <div class="panel-body container-fluid">
-    <div class="row">
-      <div class="col-md-1 show-item-header-spacer">
-      </div>
-      <div class="col-md-10 show-item-header">
-        <h3>Photos</h3>
-      </div>
-      <hr align="left" width="100%">
-    </div>
+<div class="panel-group">
 
-    <div class="row">
-      <div class="col-md-6">
-        <img id="image-large" class="img-responsive img-rounded" ng-src="{{$ctrl.largeImage}}">
-
-        <div class="btn-group btn-group-sm">
-
-        <button ng-repeat="img_url in $ctrl.imgArr" class="btn btn-default" type="button">
-          <a ng-click="$ctrl.enlargeImage(img_url)" class="image-small" id="{{$ctrl.imgArr.indexOf(img_url)}}">
-            <img id="image-small" class="img-responsive small-photo" src="{{img_url}}">
-          </a>
-        </button>
+  <div class="panel panel-info">
+    <div id="show-panel-heading" class="panel-heading">
+      <div class="container-fluid panel-container">
+        <div class="col-xs-5 text-center">
+          <h5 class="panel-heading-text">Photos</h5>
+        </div>
+        <div class="col-xs-7 text-center">
+          <h5 class="panel-heading-text">Item Details</h5>
+        </div>
       </div>
     </div>
+    <div class="panel-body container-fluid">
 
-    <div class="col-md-6">
-      <dl>
-        <dt>
-          Description lists
-        </dt>
-        <dd>
-          A description list is perfect for defining terms.
-        </dd>
-        <dt>
-          Euismod
-        </dt>
-        <dd>
-          Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-        </dd>
-        <dd>
-          Donec id elit non mi porta gravida at eget metus.
-        </dd>
-        <dt>
-          Malesuada porta
-        </dt>
-        <dd>
-          Etiam porta sem malesuada magna mollis euismod.
-        </dd>
-        <dt>
-          Felis euismod semper eget lacinia
-        </dt>
-        <dd>
-          Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-        </dd>
-      </dl>
+
+      <div class="row">
+        <div class="col-md-6">
+          <img id="image-large" class="img-responsive img-rounded" ng-src="{{$ctrl.largeImage}}">
+
+          <ul class="img-list-group">
+
+            <li ng-repeat="img_url in $ctrl.imgArr" class="img-list-group-item" type="button">
+              <a ng-click="$ctrl.enlargeImage(img_url)" class="image-small" id="{{$ctrl.imgArr.indexOf(img_url)}}">
+                <img id="image-small" class="img-rounded" alt="Cinque Terre" max-width="60" max-height="60" src="{{img_url}}">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card-outline-primary mb-3 text-left">
+            <div class="card-block">
+              <blockquote class="card-blockquote">
+                <h4><strong>{{$ctrl.item.name}}</strong></h4>
+                <h5><strong>Category:&nbsp;</strong> {{$ctrl.item.category}}</h5>
+              </blockquote>
+            </div>
+          </div>
+          <div class="card card-outline-info mb-3 text-left">
+            <div class="card-block">
+              <blockquote class="card-blockquote">
+                <h5><strong>Description:</strong></h5>
+                <h5><strong>&nbsp;</strong>{{$ctrl.item.description}}</h5>
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
-    </div>
 
-</div>
-
+    <div class="panel panel-info">
+      <div id="show-panel-heading" class="panel-heading">
+        <h5 class="panel-heading-text">Listing Details</h5>
+      </div>
+      <div class="panel-body container-fluid">
 
     <div class="row">
       <div class="col-md-6">
-      </div>
-      <hr align="left" width="100%">
+      </div>>
       <div class="col-md-4">
-        {{$ctrl.item.name}}
+
         {{$ctrl.item.description}}
         {{$ctrl.item.condition}}
         {{$ctrl.item.cost}}
@@ -75,47 +72,23 @@
         {{$ctrl.item.category}}
       </div>
     </div>
-        <br>
-      <div class="row">
-
-        <div class="col-md-4">
-          <label>Where have you posted this?</label>
-          <div class="funkyradio">
-            <div ng-repeat="location in $ctrl.isInlocations" class="funkyradio-primary">
-              <input type="checkbox" name="checkbox" checked  id="checkbox{{location.id}}"/>
-              <label for="checkbox{{location.id}}">{{location.name}}</label>
-            </div>
-            <div ng-repeat="location in $ctrl.isNotlocations" class="funkyradio-primary">
-              <input type="checkbox" name="checkbox"  id="checkbox{{location.id}}"/>
-              <label for="checkbox{{location.id}}">{{location.name}}</label>
-            </div>
-          </div>
-        </div>
-      </div>
-</div>
-
-
-
-
-
-
-
-
-
-  <!-- <div class="panel-body">
+    <br>
     <div class="row">
-      <div class="col-md-2">
 
-      </div>
-      <div class="col-md-3">
-        <div class="carousel slide" data-interval="1000">
-          <div class="carousel-inner">
-            <div ng-repeat="img_url in $ctrl.imgArr" class="active item" data-slide-number="{{$ctrl.imgArr.indexOf(img_url)}}">
-              <img src="{{img_url}}">
-            </div>
+      <div class="col-md-4">
+        <label>Where have you posted this?</label>
+        <div class="funkyradio">
+          <div ng-repeat="location in $ctrl.isInLocations" class="funkyradio-primary">
+            <input type="checkbox" name="checkbox" checked  id="checkbox{{location.id}}"/>
+            <label for="checkbox{{location.id}}">{{location.name}}</label>
+          </div>
+          <div ng-repeat="location in $ctrl.isNotLocations" class="funkyradio-primary">
+            <input type="checkbox" name="checkbox"  id="checkbox{{location.id}}"/>
+            <label for="checkbox{{location.id}}">{{location.name}}</label>
           </div>
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
+  </div>
 </div>
