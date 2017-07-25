@@ -14,6 +14,11 @@
       vm.enlargeImage = enlargeImage
       vm.diff = Array.prototype.diff
       vm.getNotLocations = getNotLocations
+      vm.addImage = addImage
+      vm.addImageIsDisabled = false
+      vm.addImageDisabler = addImageDisabler
+      vm.toggleAddImageForm = toggleAddImageForm
+      vm.addingImage = 'false'
 
       function onInit () {
         $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items/${$stateParams.id}`)
@@ -37,7 +42,6 @@
         .catch(err => {
           console.log(err)
         })
-
       }
 
       // returns array of locations Item is not listed in
@@ -58,11 +62,35 @@
 
       function enlargeImage(url) {
         vm.largeImage = url
+        vm.addingImage = false
+      }
+
+      function addImageDisabler () {
+        if (vm.imgArr.length >= 6) {
+          vm.addImageIsDisabled = true
+        }
       }
 
       function addLocations () {
-
+        
       }
+
+      function toggleAddImageForm () {
+        vm.addingImage = !vm.addingImage
+      }
+
+      function addImage () {
+        let imageObj = {
+          item_id: vm.item.id,
+          img_url: vm.new_image_url
+        }
+        $http.post('/api/images', imageObj)
+        .then(response => {
+          console.log('ImagePost', response.data)
+          vm.imgArr.push(response.data.img_url)
+        })
+      }
+
     }
 
 

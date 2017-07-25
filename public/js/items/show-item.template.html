@@ -16,47 +16,81 @@
 
 
       <div class="row">
-        <div class="col-md-6">
-          <img id="image-large" class="img-responsive img-rounded" ng-src="{{$ctrl.largeImage}}">
+        <div class="col-md-6 ">
+
+          <div class="switch-container">
+
+            <!-- Large Image -->
+            <img ng-hide="$ctrl.addingImage" id="image-large" class="img-responsive img-rounded" ng-src="{{$ctrl.largeImage}}">
+
+            <!-- Image Add Form -->
+            <div ng-show="$ctrl.addingImage" class="thumbnail add-image-form">
+              <img src="..." alt="...">
+              <div class="caption">
+                <input type="file" file-model="myFile"/>
+                <button ng-click="uploadFile()">upload me</button>
+              </div>
+            </div>
+
+
 
           <ul class="img-list-group">
-
             <li ng-repeat="img_url in $ctrl.imgArr" class="img-list-group-item" type="button">
               <a ng-click="$ctrl.enlargeImage(img_url)" class="image-small" id="{{$ctrl.imgArr.indexOf(img_url)}}">
                 <img id="image-small" class="img-rounded" alt="Cinque Terre" max-width="60" max-height="60" src="{{img_url}}">
               </a>
             </li>
-          </ul>
+            <li class="img-list-group-item" type="button">
+              <a class="col-lg-2 add-img-btn" data-placement="right"
+              title="Add an image"
+              onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.toggleAddImageForm()">
+              <i id="file-icon" class="fa fa-file-image-o"></i>
+            </a>
+          </li>
+        </ul>
         </div>
+      </div>
 
-        <div class="col-md-6">
-          <div class="card-outline-primary mb-3 text-left">
-            <div class="card-block">
-              <blockquote class="card-blockquote">
-                <h4><strong>{{$ctrl.item.name}}</strong></h4>
-                <h5><strong>Category:&nbsp;</strong> {{$ctrl.item.category}}</h5>
-              </blockquote>
-            </div>
-          </div>
-          <div class="card card-outline-info mb-3 text-left">
-            <div class="card-block">
-              <blockquote class="card-blockquote">
-                <h5><strong>Description:</strong></h5>
-                <h5><strong>&nbsp;</strong>{{$ctrl.item.description}}</h5>
-              </blockquote>
-            </div>
-          </div>
+      <!-- <div ng-app="app">
+      <h1 id="title">{{$ctrl.getMessage()}}</h1>
 
+    </div> -->
+
+    <div class="col-md-6 details-column">
+      <div class=" card card-outline-info text-left">
+        <div class="card-block">
+          <blockquote class="card-blockquote detail-name detail-name-block text-center">
+            <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-name" data-placement="left"
+            title="Copy" tooltip-trigger="click"
+            onmouseenter="$(this).tooltip('show')"></i>
+            <h3 id="detail-name"><strong>{{$ctrl.item.name}}</strong></h3>
+          </blockquote>
+          <blockquote class="card-blockquote detail-category-block">
+            <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-category" data-placement="left"
+            title="Copy" tooltip-trigger="click"
+            onmouseenter="$(this).tooltip('show')"></i>
+            <h5 id="detail-category-title"><strong>Category:&nbsp;</strong> <span id="detail-category">{{$ctrl.item.category}}</span></h5>
+          </blockquote>
+          <blockquote class="card-blockquote detail-descr-block">
+            <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-descr" data-placement="left"
+            title="Copy" tooltip-trigger="click"
+            onmouseenter="$(this).tooltip('show')"></i>
+            <h5 id="detail-descr-title"><strong>Description:</strong></h5>
+            <h5><strong>&nbsp;</strong><span id="detail-descr">{{$ctrl.item.description}}</span></h5>
+          </blockquote>
         </div>
       </div>
 
     </div>
+  </div>
 
-    <div class="panel panel-info">
-      <div id="show-panel-heading" class="panel-heading">
-        <h5 class="panel-heading-text">Listing Details</h5>
-      </div>
-      <div class="panel-body container-fluid">
+</div>
+
+<div class="panel panel-info">
+  <div id="show-panel-heading" class="panel-heading text-center">
+    <h5 class="panel-heading-text">Listing Details</h5>
+  </div>
+  <div class="panel-body container-fluid">
 
     <div class="row">
       <div class="col-md-6">
@@ -90,5 +124,5 @@
       </div>
     </div>
   </div>
-  </div>
+</div>
 </div>
