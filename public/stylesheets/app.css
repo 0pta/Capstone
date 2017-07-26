@@ -52,6 +52,19 @@ input[type="password"]#signup-password {
 img.login-logo {
   margin-top: 20px;
 }
+img#welcomeimg {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.dashboard-well {
+  padding-top: 0;
+}
+img#imgletter-s {
+  height: 35px;
+}
+h3.dashboard-message {
+  margin-right: 7px;
+}
 
 .header-row {
   height: 70px;
@@ -69,6 +82,9 @@ img#header-logo {
 #header-text {
   font-size: 30px;
   margin-top: 10px;
+}
+.dashboard-welcome {
+  margin-top: 20vh;
 }
 
 .nav-wrapper {
