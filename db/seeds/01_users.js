@@ -29,7 +29,16 @@ exports.seed = function(knex) {
           password: '$2a$10$rKZk0RcuTePW2RRawV.equf00kalH4Bb7I6KZPL1R5pDcnWrsrNfm', //password3
           created_at: new Date(),
           updated_at: new Date()
-        }
+        },
+        {
+          id: 4,
+          first_name: 'Sim',
+          last_name: 'K',
+          email: 'sim_khalsa052@gmail.com',
+          password: '$2a$10$dXAFn8hRzygvCkeXyir5U.HnFBxpmGeUqckI.fpUVptlLGmsXKGw.', //password1
+          created_at: new Date(),
+          updated_at: new Date()
+        },
       ])
   }).then(() => {
     return knex.raw(

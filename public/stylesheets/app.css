@@ -167,7 +167,7 @@ span#sort-sm:hover {
   transition: all 0.3s ease 0s;
 }
 .list-div-content {
-  padding: 10px
+  padding: 10px;
 }
 .list-div-header {
   border-bottom: 2px solid #86D3FF;
@@ -367,10 +367,22 @@ blockquote #detail-name {
 blockquote #detail-category-title {
   margin: 0px !important;
 }
+blockquote #detail-caption-title {
+  margin-top: 0px !important;
+}
 blockquote #detail-descr-title {
   margin-top: 0px !important;
 }
 blockquote #detail-condition-title {
+  margin-top: 0px !important;
+}
+blockquote #detail-cost-title {
+  margin-top: 0px !important;
+}
+blockquote #detail-sell-title {
+  margin-top: 0px !important;
+}
+blockquote #detail-value-title {
   margin-top: 0px !important;
 }
 
@@ -390,7 +402,22 @@ i.fa.fa-clipboard {
 .detail-category-block:hover .fa-clipboard{
   opacity: 1;
 }
+.detail-caption-block:hover .fa-clipboard{
+  opacity: 1;
+}
+.detail-condition-block:hover .fa-clipboard{
+  opacity: 1;
+}
 .detail-descr-block:hover .fa-clipboard{
+  opacity: 1;
+}
+.detail-cost-block:hover .fa-clipboard{
+  opacity: 1;
+}
+.detail-sell-block:hover .fa-clipboard{
+  opacity: 1;
+}
+.detail-value-block:hover .fa-clipboard{
   opacity: 1;
 }
 i.fa.fa-clipboard:hover {
@@ -527,6 +554,22 @@ hr#nav-divide-line {
   color: #A4D6FA;
 }
 
-i.fa-usd {
-  height: 20px;
+i.bling {
+  font-size: 10px;
+}
+
+.listing-details-money-col {
+  margin-top: 50px;
+}
+img#all-items-img {
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+img#all-items-img:hover {
+  border: 2px solid #86D3FF;
+  cursor: pointer;
+}
+.all-items-img {
+  cursor: pointer;
 }

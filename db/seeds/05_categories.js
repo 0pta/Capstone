@@ -44,6 +44,42 @@ exports.seed = function(knex) {
           name: 'Services',
           created_at: new Date(),
           updated_at: new Date()
+        },
+        {
+          id: 8,
+          name: 'Jewelry',
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 9,
+          name: `Men's Clothes`,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 10,
+          name: `Women's Clothes`,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 11,
+          name: `Men's Shoes`,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 12,
+          name: `Women's Shoes`,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        {
+          id: 13,
+          name: `Art`,
+          created_at: new Date(),
+          updated_at: new Date()
         }
       ]
     )

@@ -5,11 +5,11 @@
   </div>
   <!-- /.panel-heading -->
   <div class="col-md-1 pull-right">
-    <i class="fa fa-th pull-right"></i>
+    <!-- <i class="fa fa-th pull-right"></i> -->
   </div>
   <div class="panel-body">
     <div ng-repeat="item in $ctrl.items" class="all-items-thumbnails col-md-2">
-      <img ng-src="{{item.cover_url}}" class="img-thumbnail img-thumbnails">
+      <img ng-click="$ctrl.showItem(item.id)" ng-src="{{item.cover_url}}" id="all-items-img" class="img-thumbnail img-thumbnails">
     </div>
   </div>
 

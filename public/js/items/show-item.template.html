@@ -87,6 +87,12 @@
             onmouseenter="$(this).tooltip('show')"></i>
             <h5 id="detail-condition-title"><strong>Condition:&nbsp;</strong> <span id="detail-condition">{{$ctrl.item.condition}}</span></h5>
           </blockquote>
+          <blockquote class="card-blockquote detail-caption-block">
+            <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-caption" data-placement="left"
+            title="Copy" tooltip-trigger="click"
+            onmouseenter="$(this).tooltip('show')"></i>
+            <h5 id="detail-caption-title"><strong>Caption:&nbsp;</strong> <span id="detail-caption">{{$ctrl.item.description_caption}}</span></h5>
+          </blockquote>
           <blockquote class="card-blockquote detail-descr-block">
             <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-descr" data-placement="left"
             title="Copy" tooltip-trigger="click"
@@ -110,6 +116,10 @@
 
     <div class="row">
 
+      <div class="col-md-1">
+
+      </div>
+
       <div class="col-md-4">
         <label>Where have you listed this item?</label>
         <div class="funkyradio">
@@ -126,25 +136,32 @@
         </div>
       </div>
 
-      <div class="col-md-2">
+      <div class="col-md-3">
 
       </div>
 
-        <div class="col-md-2 details-column">
+        <div class="col-md-2 details-column listing-details-money-col">
           <div class=" card card-outline-default text-left">
             <div class="card-block">
               <blockquote class="card-blockquote detail-cost-block">
-                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-category" data-placement="left"
+                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-cost" data-placement="left"
                 title="Copy" tooltip-trigger="click"
                 onmouseenter="$(this).tooltip('show')"></i>
                 <h5 id="detail-cost-title"><strong>Purchased for:&nbsp;</strong> <i class="fa fa-usd bling"></i><span id="detail-cost">{{$ctrl.item.cost}}</span></h5>
               </blockquote>
               <blockquote class="card-blockquote detail-sell-block">
-                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-descr" data-placement="left"
+                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-sell" data-placement="left"
                 title="Copy" tooltip-trigger="click"
                 onmouseenter="$(this).tooltip('show')"></i>
                 <h5 id="detail-sell-title"><strong>Listed for:</strong></h5>
                 <h5><strong>&nbsp;</strong><i class="fa fa-usd bling"></i><span id="detail-sell">{{$ctrl.item.listed_price}}</span></h5>
+              </blockquote>
+              <blockquote class="card-blockquote detail-value-block">
+                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-value" data-placement="left"
+                title="Copy" tooltip-trigger="click"
+                onmouseenter="$(this).tooltip('show')"></i>
+                <h5 id="detail-value-title"><strong>Value: </strong></h5>
+                <h5><strong>&nbsp;</strong><i class="fa fa-usd bling"></i><span id="detail-value">{{$ctrl.item.value}}</span></h5>
               </blockquote>
             </div>
           </div>
