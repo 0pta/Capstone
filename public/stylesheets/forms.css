@@ -81,7 +81,7 @@
 .funkyradio-primary input[type="radio"]:checked ~ label:before,
 .funkyradio-primary input[type="checkbox"]:checked ~ label:before {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #1B96FE;
 }
 
 .funkyradio-success input[type="radio"]:checked ~ label:before,

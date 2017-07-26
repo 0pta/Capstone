@@ -47,7 +47,7 @@
         .then(function () {
           vm.reset()
           vm.response = 'You successfully logged in!'
-          $state.go('app')
+          $state.go('dashboard')
         })
         .catch(function (result) {
           vm.errors.push(result.data.err)

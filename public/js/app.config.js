@@ -13,14 +13,22 @@
     $stateProvider
     .state({
       name: 'app',
-      url: '/app',
       component: 'app',
+      abstract: true,
       requiresLogin: true
     })
     .state({
       name: 'login',
       url: '/',
       component: 'login'
+    })
+    .state({
+      name: 'dashboard',
+      parent: 'app',
+      url: '/dashboard',
+      component: 'dashboard',
+      css: 'stylesheets/dashboard.css',
+      requiresLogin: true
     })
     .state({
       name: 'allItems',

@@ -3,13 +3,15 @@
     <div role="" class="col-sm-4 col-md-9 col-lg-8">
       <input type="search" class="form-control input-sm filter-form" placeholder="Filter" ng-model="search">
     </div>
-    <div class="dropdown col-sm-4 col-md-3 col-lg-4" ng-init="sort='Name'; sortName='sortBy'">
+    <div class="dropdown text-center col-sm-4 col-md-3 col-lg-4" ng-init="sort='Name'; sortName='sortBy'">
       <a
       class="dropdown-toggle"
       data-toggle="dropdown"
       role="button"
       aria-haspopup="true"
-      aria-expanded="false"><span id="sort-sm"><i class="fa fa-sort"></i></span>
+      aria-expanded="false"><span data-placement="right"
+      title="Sort"
+      onmouseenter="$(this).tooltip('show')" id="sort-sm"><i class="fa fa-sort"></i></span>
     </a>
     <ul class="dropdown-menu">
       <li>

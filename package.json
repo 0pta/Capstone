@@ -17,6 +17,7 @@
     "@uirouter/visualizer": "latest",
     "angular": "^1.6.0",
     "angular-animate": "^1.6.5",
+    "angular-route": "^1.6.5",
     "bcrypt-as-promised": "^1.1.0",
     "blueimp-file-upload-node": "^2.1.0",
     "body-parser": "~1.17.1",

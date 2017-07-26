@@ -65,11 +65,7 @@
         </div>
       </div>
 
-      <!-- <div ng-app="app">
-      <h1 id="title">{{$ctrl.getMessage()}}</h1>
-
-    </div> -->
-
+      <!-- Item Details Column -->
     <div class="col-md-6 details-column">
       <div class=" card card-outline-default text-left">
         <div class="card-block">
@@ -84,6 +80,12 @@
             title="Copy" tooltip-trigger="click"
             onmouseenter="$(this).tooltip('show')"></i>
             <h5 id="detail-category-title"><strong>Category:&nbsp;</strong> <span id="detail-category">{{$ctrl.item.category}}</span></h5>
+          </blockquote>
+          <blockquote class="card-blockquote detail-condition-block">
+            <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-condition" data-placement="left"
+            title="Copy" tooltip-trigger="click"
+            onmouseenter="$(this).tooltip('show')"></i>
+            <h5 id="detail-condition-title"><strong>Condition:&nbsp;</strong> <span id="detail-condition">{{$ctrl.item.condition}}</span></h5>
           </blockquote>
           <blockquote class="card-blockquote detail-descr-block">
             <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-descr" data-placement="left"
@@ -107,31 +109,50 @@
   <div class="panel-body container-fluid">
 
     <div class="row">
-      <div class="col-md-6">
-      </div>
-
-
-      <div class="col-md-2">
-        {{$ctrl.item.condition}}
-        {{$ctrl.item.cost}}
-        {{$ctrl.item.listed_price}}
-        {{$ctrl.item.sold_price}}
-        {{$ctrl.item.user_id}}
-        {{$ctrl.item.category}}
-      </div>
 
       <div class="col-md-4">
-        <label>Where have you posted this?</label>
+        <label>Where have you listed this item?</label>
         <div class="funkyradio">
           <div ng-repeat="location in $ctrl.isInLocations" class="funkyradio-primary">
             <input type="checkbox" name="checkbox" checked  id="checkbox{{location.id}}"/>
             <label for="checkbox{{location.id}}">{{location.name}}</label>
           </div>
+          <br>
+          <small>*Locations not listed.</small>
           <div ng-repeat="location in $ctrl.isNotLocations" class="funkyradio-primary">
             <input type="checkbox" name="checkbox"  id="checkbox{{location.id}}"/>
             <label for="checkbox{{location.id}}">{{location.name}}</label>
           </div>
         </div>
+      </div>
+
+      <div class="col-md-2">
+
+      </div>
+
+        <div class="col-md-2 details-column">
+          <div class=" card card-outline-default text-left">
+            <div class="card-block">
+              <blockquote class="card-blockquote detail-cost-block">
+                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-category" data-placement="left"
+                title="Copy" tooltip-trigger="click"
+                onmouseenter="$(this).tooltip('show')"></i>
+                <h5 id="detail-cost-title"><strong>Purchased for:&nbsp;</strong> <i class="fa fa-usd bling"></i><span id="detail-cost">{{$ctrl.item.cost}}</span></h5>
+              </blockquote>
+              <blockquote class="card-blockquote detail-sell-block">
+                <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-descr" data-placement="left"
+                title="Copy" tooltip-trigger="click"
+                onmouseenter="$(this).tooltip('show')"></i>
+                <h5 id="detail-sell-title"><strong>Listed for:</strong></h5>
+                <h5><strong>&nbsp;</strong><i class="fa fa-usd bling"></i><span id="detail-sell">{{$ctrl.item.listed_price}}</span></h5>
+              </blockquote>
+            </div>
+          </div>
+
+
+
+        <!-- {{$ctrl.item.sold_price}} -->
+        <!-- {{$ctrl.item.user_id}} -->
       </div>
 
     </div>

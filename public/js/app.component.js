@@ -53,7 +53,7 @@
         vm.buttonSymbol = '–'
         $state.go('itemsForm')
       } else {
-        $state.go('app')
+        $state.go('dashboard')
         vm.buttonSymbol = '+'
       }
     }
