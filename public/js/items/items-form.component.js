@@ -20,7 +20,7 @@
       console.log('component items loaded')
       vm.showingImageForm = false
 
-      $http.get(`${baseUrl}/api/items`)
+      $http.get(`/api/items`)
       .then(response => {
         vm.items = response.data
       })
@@ -28,7 +28,7 @@
         console.log(err)
       })
 
-      $http.get(`${baseUrl}/api/categories`)
+      $http.get(`/api/categories`)
       .then(response => {
         vm.categories = response.data
       })
@@ -36,7 +36,7 @@
         console.log(err)
       })
 
-      $http.get(`${baseUrl}/api/locations`)
+      $http.get(`/api/locations`)
       .then(response => {
         vm.locations = response.data
       })
@@ -65,7 +65,7 @@
     }
 
     function addImages () {
-      $http.get(`${baseUrl}/api/items`)
+      $http.get(`/api/items`)
       .then(response => {
         console.log(response);
         let returnedItem = response.data.pop()

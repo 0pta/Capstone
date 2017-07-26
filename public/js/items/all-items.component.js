@@ -19,12 +19,12 @@
 
       function onInit () {
         vm.showingDelete = false
-        $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items`)
+        $http.get(`/api/users/${SessionsService.user.id}/items`)
         .then(response => {
           vm.items = []
           vm.itemIds = response.data.map(item => item.id)
           return vm.itemIds.forEach(id => {
-            $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items/${id}`)
+            $http.get(`/api/users/${SessionsService.user.id}/items/${id}`)
             .then(response => {
               vm.items.push(response.data)
               console.log(vm.items);
@@ -38,7 +38,7 @@
 
       function deleteItem (id) {
         showDeleteMsg()
-        $http.delete(`${baseUrl}/api/items/${id}`)
+        $http.delete(`/api/items/${id}`)
         .then(() => {
           vm.deleteMsg = `DELETED ITEM #${id}`
           vm.items = vm.items.filter(item => {

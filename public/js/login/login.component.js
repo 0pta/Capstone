@@ -55,7 +55,7 @@
     }
 
     vm.openApi = function () {
-      $http.get(`${baseUrl}/api/sessions/open`)
+      $http.get(`/api/sessions/open`)
         .then(function (result) {
           console.log('Your message:', result.data)
           vm.reset()
@@ -68,7 +68,7 @@
     }
 
     vm.closedApi = function () {
-      $http.get(`${baseUrl}/api/sessions/closed`)
+      $http.get(`/api/sessions/closed`)
       .then(function (result) {
         console.log('Your message:', result.data)
         vm.reset()

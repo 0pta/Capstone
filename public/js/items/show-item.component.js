@@ -25,14 +25,14 @@ console.clear();
     function onInit () {
       vm.addingImage = false
       vm.enteringUrl = false
-      $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items/${$stateParams.id}`)
+      $http.get(`/api/users/${SessionsService.user.id}/items/${$stateParams.id}`)
       .then(response => {
         vm.item = response.data
         vm.imgArr = response.data.img_urls
         vm.category = response.data.category
         vm.isInLocations = response.data.locations
         vm.largeImage = response.data.cover_url
-        return $http.get(`${baseUrl}/api/locations`)
+        return $http.get(`/api/locations`)
         .then(response => {
           vm.allLocations = response.data
           let isInIds = vm.isInLocations.map(location => location.location_id)

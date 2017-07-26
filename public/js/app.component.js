@@ -33,7 +33,7 @@
     function onInit () {
       vm.addingItem = false
 
-      $http.get(`${baseUrl}/api/item_locations`)
+      $http.get(`/api/item_locations`)
       .then(response => {
         vm.itemLocations = response.data
       })

@@ -8,11 +8,11 @@
     self.items = []
     self.refresh = function () {
 
-      $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items`)
+      $http.get(`/api/users/${SessionsService.user.id}/items`)
       .then(response => {
         self.itemIds = response.data.map(item => item.id)
         return self.itemIds.forEach(id => {
-          $http.get(`${baseUrl}/api/users/${SessionsService.user.id}/items/${id}`)
+          $http.get(`/api/users/${SessionsService.user.id}/items/${id}`)
           .then(response => {
             self.items.push(response.data)
             console.log(self.items);
