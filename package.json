@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "startloader": "lite-server ./public/js/image_uploader",
-    "start": "node ./app.js",
+    "start": "node ./bin/www",
     "dev": "nodemon -e js,hbs ./bin/www",
     "knex": "knex",
     "migrate": "knex migrate:latest",
