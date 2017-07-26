@@ -1,3 +1,4 @@
+CLOUDINARY_CONFIG = {"api_key": "YOUR_API_KEY", "cloud_name": "YOUR_CLOUD_NAME"};
 (function() {
   'use strict'
 

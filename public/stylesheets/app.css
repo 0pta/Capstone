@@ -24,20 +24,23 @@ small {
   font-weight: lighter;
   font-style: italic;
 }
-.app-wrapper {
-  margin-left: 75px;
-}
+
 .main-wrapper {
   height: 100vh;
   border-right: 2px solid #34495E;
+  padding: 0;
 }
+.login-wrapper {
+  margin-top: 200px;
+}
+
 .header-row {
   height: 70px;
   margin-top: 11px;
   margin-bottom: 0px;
 }
 #header-logo {
-  width: 600px;
+  width: 200px;
   height: 70px;
   margin-left: 20px;
   margin-bottom: 11px;
@@ -60,8 +63,11 @@ i.fa {
   font-size: 38px;
   margin-top: 5px;
 }
-.nav-spacer {
+.nav-spacer-xs {
   height: 25px;
+}
+.nav-spacer-md {
+  height: 100px;
 }
 .nav-link {
   cursor: pointer;
@@ -88,6 +94,14 @@ i.fa {
   margin: 0;
   margin-bottom: 12px;
 }
+
+span#sort-sm {
+  margin-top: -40px;
+  transition: all 0.3s ease 0s;
+}
+span#sort-sm:hover {
+  color: #86D3FF
+}
 .list-column-header {
   height: 81px;
   padding-top: 30px;
@@ -95,9 +109,9 @@ i.fa {
   padding-right: 10px;
   padding-bottom: -10px
 }
-.search-form {
-  width: 180px;
-  margin-left: 10px;
+.filter-form {
+  width: 100%;
+  margin-left: -10px;
 }
 .list-div {
   height: 100px;
@@ -117,13 +131,13 @@ i.fa {
 .list-div-content {
   padding: 10px
 }
-.list-header {
-  border: 2px solid #86D3FF;
+.list-div-header {
+  border-bottom: 2px solid #86D3FF;
   margin-left: 10px;
-  width: 100%;
+  width: 70%;
 }
-.list-header:hover {
-  border: 2px solid #86D3FF;
+.list-div-header:hover {
+  border-bottom: 2px solid #86D3FF;
 }
 .all-items-table-row:hover {
   background-color: #86D3FF;
@@ -184,11 +198,11 @@ a.create-item-btn {
   height: 89vh;
   overflow: scroll;
   display: inline-block;
-  border: 1px solid #ddd;
   border-left: none;
-  padding-top: 12px;
   width: 100%;
-  margin-left: -15px;
+}
+.show-panel-group {
+  width: 100%;
 }
 
 span.table-message {
@@ -206,9 +220,14 @@ ul.hide-bullets > li {
     display: inline-block;
 }
 
-
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #34495E;
+    color: white;
+    height: 50px;
+}
 .panel-heading-text {
-  font-size: 18px;
+  font-size: 22px;
 }
 .photos {
   height: 40vh;
@@ -261,6 +280,12 @@ img#add-image-small:hover {
   opacity: 1;
 }
 
+img#file-preview {
+  height: 150px;
+  width: 200px;
+  border: none;
+}
+
 img#image-large {
   max-height: 225px;
   border: 2px solid #ddd;
@@ -268,7 +293,7 @@ img#image-large {
 .thumbnail.add-image-form {
   height: 205px;
   width: 335px;
-  border: 2px solid #ddd;
+  border: 1px dashed #ddd;
 }
 ul.img-list-group {
   padding-left: 0;
@@ -291,7 +316,6 @@ blockquote {
   border: 1px solid white;
   margin-top: -15px;
   transition: all 0.3s ease 0s;
-
 }
 blockquote:hover {
   border: 1px solid #86D3FF;
@@ -329,4 +353,112 @@ i.fa.fa-clipboard {
 i.fa.fa-clipboard:hover {
   color: #86D3FF;
   transition: none;
+}
+
+@media (max-width: 1200px) {
+  .list-column-header {
+    height: 69px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    border-right: 1px solid #ddd;
+  }
+  .filter-form {
+    width: 100%;
+    margin-left: -10px;
+  }
+  span#sort-sm {
+    margin-bottom: 10px;
+  }
+  a.dropdown-toggle {
+    width: 15px !important;
+  }
+  a.dropdown-toggle:hover {
+    background-color: white !important;
+  }
+  li.dropdown:hover {
+    background-color: white !important;
+  }
+  li.active {
+  }
+
+  .list-div {
+    height: 90px;
+    margin: 0;
+    opacity: 0.7;
+    border: .5px solid #86D3FF;
+    background-color: #BCE6FF;
+    border-left: none;
+    border-right: none;
+  }
+  .list-div-content h4 {
+    font-size: 15px;
+  }
+  .list-div-content small{
+    visibility: hidden;
+  }
+  .list-div-content {
+    padding: 0;
+  }
+  img.list-div-img.img-thumbnail {
+    width: 70px !important;
+    height: 70px;
+    padding-top: -10px;
+    margin-left: -10px;
+    padding: 2px;
+
+  }
+  h4.list-header {
+    border-bottom: 2px solid #86D3FF;
+    margin-left: 10px;
+    width: 80%;
+  }
+}
+.custom-file-upload {
+  cursor: pointer;
+  margin-top: 19px;
+}
+input[type="file"] {
+    display: none;
+}
+img#file-preview.img-responsive {
+  background: none;
+  border-style: dashed !important;
+  background-image: url('../assets/200x150.png') !important;
+}
+.img-url-form {
+  height: 40px;
+}
+input[type="text"].img-url-input {
+  position: absolute;
+  width: 334px;
+  font-size:13px;
+  font-style: italic;
+}
+.login-heading {
+  font-size: 21px;
+}
+.signin-btn {
+  cursor: pointer;
+  border: 2px solid #34495E;
+  border-radius: 5px;
+  background: none;
+  height: 40px;
+  width: 195px;
+  font-size: 22px;
+  font-family: inherit;
+  transition: all 0.3s ease 0s;
+}
+button.signin-btn:hover {
+  border: 3px solid #86D3FF;
+  border-radius: 5px;
+  color: #86D3FF;
+}
+.remember-checkbox label {
+  font-size: 12px;
+}
+.new-questionmark {
+  margin-right: 5px;
+}
+h1.sim-login-header-text {
+
 }

@@ -10,9 +10,11 @@
     const vm = this
 
     vm.$onInit = onInit
+    vm.createAcc = createAcc
+    vm.backToLog = backToLog
 
     function onInit () {
-      console.log('Login Component Loaded');
+      vm.loggingIn = true
     }
 
     vm.reset = function () {
@@ -83,6 +85,15 @@
         vm.reset()
         vm.response = 'You successfully logged out.'
       })
+    }
+
+    function createAcc () {
+      vm.signingUp = true
+      vm.loggingIn = false
+    }
+    function backToLog () {
+      vm.loggingIn = true
+      vm.signingUp = false
     }
   }
 }())

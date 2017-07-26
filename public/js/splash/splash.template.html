@@ -1,37 +1,91 @@
-<div id="login-overlay" class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-      <h4 class="modal-title" id="myModalLabel">Login</h4>
-    </div>
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="well">
-            <form id="loginForm" ng-submit="$ctrl.signup($ctrl.signupOpts)">
-              <div class="form-group">
-                <label for="username" class="control-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
-                <span class="help-block"></span>
+<div class="row">
+  <!-- LOGIN -->
+  <div class="col-md-4 col-md-offset-7">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-lock"></span>
+        Login
+      </div>
+      <div class="panel-body">
+        <form ng-submit="$ctrl.login($ctrl.loginOpts)" class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="login-email" class="col-sm-3 control-label">
+              Email
+            </label>
+            <div class="col-sm-9">
+              <input ng-disabled="$ctrl.session.user.id" ng-model="$ctrl.loginOpts.email" type="email" class="form-control" id="login-email" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="login-password" class="col-sm-3 control-label">
+              Password
+            </label>
+              <div class="col-sm-9">
+                <input ng-disabled="$ctrl.session.user.id" ng-model="$ctrl.loginOpts.password" type="password" class="form-control" id="login-password" placeholder="Password" required>
               </div>
-              <div class="form-group">
-                <label for="password" class="control-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
-                <span class="help-block"></span>
-              </div>
-              <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="remember" id="remember"> Remember login
+                  <input type="checkbox"/>
+                  Remember me
                 </label>
-                <p class="help-block">(if this is a private computer)</p>
               </div>
-              <button type="submit" class="btn btn-success btn-block">Login</button>
-              <a href="/forgot/" class="">Forgot Password</a>  |  <a href="/create/" class="">Create Account</a>
-            </form>
+              </div>
+            </div>
+            <div class="form-group last">
+              <div class="col-sm-offset-3 col-sm-9">
+                  <button ng-disabled="$ctrl.session.user.id" type="submit" class="btn btn-success btn-sm">Sign in</button>
+                  <button type="reset" class="btn btn-default btn-sm">Reset</button>
+                </div>
+            </div>
+        </form>
+      </div>
+          <div class="panel-footer">
+            <a href="#">create account</a>
+            <a ng-disabled="!$ctrl.session.user.id" ng-click="$ctrl.logout()">Logout</a>
           </div>
-        </div>
+    </div>
+  </div>
+
+  <!-- SIGNUP -->
+  <div class="col-md-4 col-md-offset-7">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="glyphicon glyphicon-lock"></span>
+        Create Account
+      </div>
+      <div class="panel-body">
+        <form ng-submit="$ctrl.signup($ctrl.signupOpts)" class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="signup-email" class="col-sm-3 control-label">
+              Email
+            </label>
+            <div class="col-sm-9">
+              <input ng-disabled="$ctrl.session.user.id" ng-model="$ctrl.signupOpts.email" type="email" class="form-control" id="signup-email" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signup-password" class="col-sm-3 control-label">
+              Password
+            </label>
+            <div class="col-sm-9">
+              <input ng-disabled="$ctrl.session.user.id" ng-model="$ctrl.signupOpts.password" type="password" class="form-control" id="signup-password" placeholder="Password" required>
+            </div>
+          </div>
+            <div class="form-group last">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button ng-disabled="$ctrl.session.user.id" type="submit" class="btn btn-success btn-sm">
+                  Submit
+                </button>
+                <button type="reset" class="btn btn-default btn-sm">Reset
+                </button>
+              </div>
+            </div>
+        </form>
       </div>
     </div>
   </div>
+
 </div>

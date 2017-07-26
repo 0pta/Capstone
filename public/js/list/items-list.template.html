@@ -1,35 +1,42 @@
 <div class="row list-column-header">
-  <ul class="nav nav-pills">
-    <li role="presentation" class="active">
-      <input type="search" class="form-control input-sm search-form" placeholder="Filter" ng-model="search">
-    </li>
-  <li class="dropdown pull-right" ng-init="sort='Name'; sortName='sortBy'">
-    <a href="#"
+
+    <div role="" class="col-sm-4 col-md-9 col-lg-8">
+      <input type="search" class="form-control input-sm filter-form" placeholder="Filter" ng-model="search">
+    </div>
+    <div class="dropdown col-sm-4 col-md-3 col-lg-4" ng-init="sort='Name'; sortName='sortBy'">
+      <a
       class="dropdown-toggle"
       data-toggle="dropdown"
       role="button"
       aria-haspopup="true"
-      aria-expanded="false">Sort By<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a ng-click="sort='name'; sortName='Name'">Name</a></li>
-        <li><a ng-click="sort='category'; sortName='Category';">Category</a></li>
-        <li><a ng-click="sort='created_at'; sortName='Date';">Date</a></li>
-      </ul>
-  </li>
-</ul>
+      aria-expanded="false"><span id="sort-sm"><i class="fa fa-sort"></i></span>
+    </a>
+    <ul class="dropdown-menu">
+      <li>
+        <a ng-click="sort='name'; sortName='Name'">Name</a>
+      </li>
+      <li>
+        <a ng-click="sort='category'; sortName='Category';">Category</a>
+      </li>
+      <li>
+        <a ng-click="sort='created_at'; sortName='Date';">Date</a>
+      </li>
+    </ul>
+
+</div>
 </div>
 <div class="row scrolling-div list-column">
-  <div ng-repeat="item in $ctrl.items | filter:search | orderBy:sort" class="list-div row" ng-click="$ctrl.showItem(item.item_id)">
-    <div class="col-md-7 list-div-content">
-      <h4 class="list-header">
+  <div ng-repeat="item in $ctrl.items | filter:search | orderBy:sort" class="list-div" ng-click="$ctrl.showItem(item.item_id)">
+    <div class="col-md-7 col-sm-4 list-div-content">
+      <h4 class="list-div-header">
         {{item.name}}
       </h4>
       <small>
         {{item.description}}
       </small>
     </div>
-    <div class="col-md-5">
-      <img ng-src="{{item.cover_url}}" class="img-thumbnail">
+    <div class="col-md-5 col-sm-5">
+      <img ng-src="{{item.cover_url}}" class="img-thumbnail list-div-img">
       <!-- <img src="http://lorempixel.com/100/80" class="media-object img-thumbnail" /> -->
     </div>
   </div>

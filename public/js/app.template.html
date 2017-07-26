@@ -1,38 +1,42 @@
-<div class="app-wrapper row">
-  <!-- <splash></splash> -->
+<!-- <div class="app-wrapper row"> -->
 
-  <div class="col-lg-1 nav-wrapper">
+
+  <div class="col-lg-1 col-md-1 col-sm-1 nav-wrapper">
     <navigation></navigation>
   </div>
 
-  <div class="col-lg-3 col-md-3 col-sm-4 list-wrapper">
+  <div class="col-lg-3 col-md-2 col-sm-2 list-wrapper">
     <items-list></items-list>
   </div>
 
-  <div class="col-lg-8 main-wrapper">
+  <div class="col-lg-8 col-md-9 col-sm-8 main-wrapper">
     <div class="row header-row">
-      <a class="col-lg-2 create-item-btn text-center" data-placement="right"
-      title="Add a new item"
-      onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.toggleItemForm()">
-      {{$ctrl.buttonSymbol}}
-    </a>
-    <div class="col-lg-10">
+        <a class="col-lg-2 create-item-btn text-center" data-placement="right"
+        title="Add a new item"
+        onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.toggleItemForm()">
+        {{$ctrl.buttonSymbol}}
+      </a>
+    <div class="col-lg-10 col-md-10">
       <div class="media-object">
         <h1 id="header-text" class="pull-right">SimVentory</h1>
         <!-- <img id="header-logo" class="img-responsive" src="../assets/logo-header.png" alt=""> -->
       </div>
-      <a href="#">back</a>
     </div>
   </div>
-    <div class="container-fluid main-content">
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <div class="container-fluid main-content">
 
 
 
-          <!-- Main Content -->
-          <ui-view></ui-view>
+
+        <!-- Main Content -->
+        <ui-view></ui-view>
 
 
 
+      </div>
     </div>
   </div>
 </div>
+<!-- </div> -->

@@ -1,7 +1,7 @@
 
-<div class="panel-group">
+<div class="panel-group show-panel-group">
 
-  <div class="panel panel-info">
+  <div class="panel panel-default">
     <div id="show-panel-heading" class="panel-heading">
       <div class="container-fluid panel-container">
         <div class="col-xs-5 text-center">
@@ -25,29 +25,43 @@
 
             <!-- Image Add Form -->
             <div ng-show="$ctrl.addingImage" class="thumbnail add-image-form">
-              <img src="..." alt="...">
-              <div class="caption">
-                <input type="file" file-model="myFile"/>
-                <button ng-click="uploadFile()">upload me</button>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-1">
+                  </div>
+                  <div class="col-md-10">
+                    <input id="file-upload" type="file" fileinput="file" filepreview="filepreview"/>
+                    <label for="file-upload" class="custom-file-upload">
+                      <img id="file-preview" ng-src="{{filepreview}}" class="img-responsive" />
+                      <a ng-click="$ctrl.enterUrl()" class="pull-right">or by URL</a>
+                    </label>
+                  </div>
+
+                </div>
               </div>
             </div>
 
 
 
-          <ul class="img-list-group">
-            <li ng-repeat="img_url in $ctrl.imgArr" class="img-list-group-item" type="button">
-              <a ng-click="$ctrl.enlargeImage(img_url)" class="image-small" id="{{$ctrl.imgArr.indexOf(img_url)}}">
-                <img id="image-small" class="img-rounded" alt="Cinque Terre" max-width="60" max-height="60" src="{{img_url}}">
+            <ul class="img-list-group">
+              <li ng-repeat="img_url in $ctrl.imgArr" class="img-list-group-item" type="button">
+                <a ng-click="$ctrl.enlargeImage(img_url)" class="image-small" id="{{$ctrl.imgArr.indexOf(img_url)}}">
+                  <img id="image-small" class="img-rounded" alt="Cinque Terre" max-width="60" max-height="60" src="{{img_url}}">
+                </a>
+              </li>
+              <li class="img-list-group-item" type="button">
+                <a class="col-lg-2 add-img-btn" data-placement="right"
+                title="Add an image"
+                onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.toggleAddImageForm()">
+                <i id="file-icon" class="fa fa-file-image-o"></i>
               </a>
             </li>
-            <li class="img-list-group-item" type="button">
-              <a class="col-lg-2 add-img-btn" data-placement="right"
-              title="Add an image"
-              onmouseenter="$(this).tooltip('show')" ng-click="$ctrl.toggleAddImageForm()">
-              <i id="file-icon" class="fa fa-file-image-o"></i>
-            </a>
-          </li>
-        </ul>
+            <li ng-show="$ctrl.enteringUrl">
+              <form class="img-url-form">
+                <input type="text" class="form-control img-url-input" name="img_url" placeholder="example: https://via.placeholder.com/300x200">
+              </form>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -57,7 +71,7 @@
     </div> -->
 
     <div class="col-md-6 details-column">
-      <div class=" card card-outline-info text-left">
+      <div class=" card card-outline-default text-left">
         <div class="card-block">
           <blockquote class="card-blockquote detail-name detail-name-block text-center">
             <i class="fa fa-clipboard" aria-hidden="true" ngclipboard data-clipboard-target="#detail-name" data-placement="left"
@@ -86,7 +100,7 @@
 
 </div>
 
-<div class="panel panel-info">
+<div class="panel panel-default">
   <div id="show-panel-heading" class="panel-heading text-center">
     <h5 class="panel-heading-text">Listing Details</h5>
   </div>
@@ -94,10 +108,10 @@
 
     <div class="row">
       <div class="col-md-6">
-      </div>>
-      <div class="col-md-4">
+      </div>
 
-        {{$ctrl.item.description}}
+
+      <div class="col-md-2">
         {{$ctrl.item.condition}}
         {{$ctrl.item.cost}}
         {{$ctrl.item.listed_price}}
@@ -105,9 +119,6 @@
         {{$ctrl.item.user_id}}
         {{$ctrl.item.category}}
       </div>
-    </div>
-    <br>
-    <div class="row">
 
       <div class="col-md-4">
         <label>Where have you posted this?</label>
@@ -122,7 +133,9 @@
           </div>
         </div>
       </div>
+
     </div>
+
   </div>
 </div>
 </div>

@@ -9,6 +9,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const oauthServer = require('oauth2-server')
 const util = require('util')
+const cloudinary = require('cloudinary')
 
 const index = require('./server/routes/index')
 const users = require('./server/routes/users')
@@ -31,6 +32,11 @@ app.use(session({
 }))
 app.use(express.static(path.join(__dirname, 'public')))
 
+cloudinary.config({
+  cloud_name: 'dnqlnjcaf',
+  api_key: '714654525486879',
+  api_secret: 'LGLySoqLysn8QR632dEoMkw-TvE'
+})
 
 // routes
 
