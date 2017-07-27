@@ -14,6 +14,10 @@
             <label>Description</label>
             <textarea class="form-control" name="description" placeholder="Describe the item" required ng-model="$ctrl.item.description"></textarea>
           </div>
+          <div ng-class="{'form-group': true, 'has-error': form.description_caption.$invalid && form.description_caption.$touched }">
+            <label>Caption</label>
+            <input class="form-control" name="description_caption" ng-model="$ctrl.item.description_caption">
+          </div>
           <div ng-class="{'form-group': true, 'has-error': form.condition.$invalid && form.condition.$touched }">
             <label>Condition</label>
             <input class="form-control" name="condition" required ng-model="$ctrl.item.condition">
@@ -26,14 +30,10 @@
             <label>Listed Price</label>
             <input class="form-control" name="listed_price" required ng-model="$ctrl.item.listed_price">
           </div>
-          <div ng-class="{'form-group': true, 'has-error': form.sold_price.$invalid && form.sold_price.$touched }">
-            <label>Sold Price</label>
-            <input class="form-control" name="sold_price" required ng-model="$ctrl.item.sold_price">
-          </div>
-          <div ng-class="{'form-group': true, 'has-error': form.user_id.$invalid && form.user_id.$touched }">
+          <!-- <div ng-class="{'form-group': true, 'has-error': form.user_id.$invalid && form.user_id.$touched }">
             <label>User ID</label>
             <input class="form-control" name="user_id" required ng-model="$ctrl.item.user_id">
-          </div>
+          </div> -->
         </div>
 
         <div class="col-lg-4">

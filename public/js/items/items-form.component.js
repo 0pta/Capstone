@@ -50,6 +50,7 @@
     }
 
     function createItem () {
+      vm.item.user_id = SessionsService.user.id
       $http.post('/api/items', vm.item)
       .then(response => {
         console.log('1stpost', response)

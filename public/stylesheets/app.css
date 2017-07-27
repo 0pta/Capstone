@@ -7,7 +7,6 @@
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
-
 body {
   height: 100vh;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
